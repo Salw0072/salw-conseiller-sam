@@ -1,0 +1,2078 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SALW CONSULTING · Aucune demande perdue</title>
+<meta name="description" content="SALW CONSULTING intègre l'IA et l'automatisation dans les entreprises de services : réponse aux appels manqués, prise de rendez-vous, relances et avis clients, 24 h sur 24.">
+<meta property="og:title" content="SALW CONSULTING · Aucune demande perdue. Aucun rendez-vous oublié.">
+<meta property="og:description" content="Réponse aux appels manqués, prise de rendez-vous, relances et avis clients, 24 h sur 24. Diagnostic gratuit de 30 minutes.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#6B2150">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%236B2150'/%3E%3Ctext x='32' y='44' font-family='Arial' font-weight='700' font-size='34' fill='%23fff' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="fonts/anton-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/dm-sans-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "SALW CONSULTING",
+  "description": "Intégration de l'IA et de l'automatisation dans les entreprises de services.",
+  "email": "albert@salw-consulting.com",
+  "telephone": "+47 948 36 971",
+  "areaServed": ["NO", "CD", "FR", "BE", "CH"],
+  "address": [
+    {"@type": "PostalAddress", "addressLocality": "Drammen", "addressCountry": "NO"},
+    {"@type": "PostalAddress", "addressLocality": "Kinshasa", "addressCountry": "CD"}
+  ]
+}
+</script>
+<style>
+@font-face{font-family:"Anton";src:url(fonts/anton-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"DM Sans";src:url(fonts/dm-sans-latin-400-normal.woff2) format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"DM Sans";src:url(fonts/dm-sans-latin-500-normal.woff2) format("woff2");font-weight:500;font-display:swap}
+@font-face{font-family:"DM Sans";src:url(fonts/dm-sans-latin-700-normal.woff2) format("woff2");font-weight:700;font-display:swap}
+
+:root{
+  --prune:#6B2150;
+  --prune-fonce:#521838;
+  --prune-clair:#F6EDF2;
+  --prune-trait:#E7D3DE;
+  --nuit:#171B34;
+  --nuit-2:#20264A;
+  --vert:#2F6B50;
+  --corail:#E8A07A;
+  --texte:#1E1F2B;
+  --gris:#6A6B78;
+  --gris-clair:#9B9CA6;
+  --trait:#E6E3EA;
+  --fond:#FFFFFF;
+  --fond-2:#FAF7F9;
+  --rayon:14px;
+  --titre:"Anton","Impact","Arial Narrow Bold",sans-serif;
+  --corps:"DM Sans","Segoe UI",system-ui,-apple-system,sans-serif;
+  --ombre:0 24px 60px -18px rgba(23,27,52,.35);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;font-family:var(--corps);color:var(--texte);background:var(--fond);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{width:min(1200px,100% - 48px);margin-inline:auto}
+.titre{font-family:var(--titre);font-weight:400;letter-spacing:.005em;line-height:1.02;margin:0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+:focus-visible{outline:3px solid var(--corail);outline-offset:2px;border-radius:6px}
+.saut{position:absolute;left:12px;top:-60px;background:#fff;color:var(--prune);padding:10px 14px;border-radius:8px;z-index:100;font-weight:700}
+.saut:focus{top:12px}
+
+/* Boutons */
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:12px 22px;font-weight:700;font-size:15px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .15s,background .15s,color .15s,border-color .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-blanc{background:#fff;color:var(--prune)}
+.btn-contour{border-color:rgba(255,255,255,.7);color:#fff;background:transparent}
+.btn-contour:hover{background:rgba(255,255,255,.1)}
+.btn-prune{background:var(--prune);color:#fff}
+.btn-prune:hover{background:var(--prune-fonce)}
+.btn-nuit{background:var(--nuit);color:#fff}
+.btn[disabled]{opacity:.5;cursor:not-allowed;transform:none}
+
+/* En-tête */
+.entete{position:sticky;top:0;z-index:50;background:var(--prune);color:#fff;transition:box-shadow .2s}
+.entete.defile{box-shadow:0 6px 24px -10px rgba(0,0,0,.45)}
+.entete-in{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:16px 0}
+.logo{font-family:var(--titre);font-size:24px;letter-spacing:.02em;text-decoration:none;white-space:nowrap}
+.logo span{font-family:var(--corps);font-weight:500;font-size:19px;letter-spacing:.06em;opacity:.92}
+.nav{display:flex;align-items:center;gap:4px;background:#fff;border-radius:999px;padding:5px 8px}
+.nav a{color:var(--nuit);text-decoration:none;font-size:14px;font-weight:500;padding:6px 12px;border-radius:999px}
+.nav a:hover{background:var(--prune-clair)}
+.langues{display:flex;align-items:center;gap:2px;padding-left:8px;margin-left:4px;border-left:1px solid var(--trait)}
+.langues button{border:0;background:none;font-size:13px;font-weight:700;color:var(--prune);padding:6px 6px;border-radius:6px;cursor:pointer}
+.langues button[aria-disabled="true"]{color:var(--gris-clair);cursor:help}
+.langues .sep{color:var(--gris-clair);font-size:12px}
+.entete .btn-blanc{padding:10px 20px;font-size:14px}
+.burger{display:none;background:none;border:1.5px solid rgba(255,255,255,.6);border-radius:10px;color:#fff;width:44px;height:44px;cursor:pointer}
+.localite{display:inline-block;border:1px solid rgba(255,255,255,.45);border-radius:999px;padding:4px 12px;font-size:12px;margin-top:-4px;margin-bottom:10px}
+
+/* Héros */
+.heros{background:var(--prune);color:#fff;padding:36px 0 90px;position:relative}
+.heros-grille{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+.heros h1{font-size:clamp(46px,6.6vw,92px);max-width:12.5ch}
+.heros-accroche{font-size:17px;max-width:520px;margin:22px 0 28px;opacity:.95}
+.heros-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+/* Widget Sam */
+.sam{background:#fff;color:var(--texte);border-radius:18px;box-shadow:var(--ombre);overflow:hidden;position:relative;z-index:2;margin-bottom:-60px}
+.sam-onglets{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--trait)}
+.sam-onglets button{background:none;border:0;padding:12px 6px 10px;font-size:13px;color:var(--gris);cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;border-bottom:2px solid transparent;margin-bottom:-1px}
+.sam-onglets button svg{width:18px;height:18px}
+.sam-onglets button[aria-selected="true"]{color:var(--prune);border-bottom-color:var(--prune);font-weight:700}
+.sam-panneau{padding:18px}
+.sam-panneau[hidden]{display:none}
+.fil{display:flex;flex-direction:column;gap:12px;max-height:340px;overflow-y:auto;padding-right:4px}
+.bulle{display:flex;gap:10px;align-items:flex-start;animation:apparait .25s ease-out}
+@keyframes apparait{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.avatar{flex:none;width:30px;height:30px;border-radius:50%;background:var(--prune);color:#fff;display:grid;place-items:center;font-weight:700;font-size:13px}
+.bulle p{margin:0;background:var(--prune-clair);padding:10px 14px;border-radius:4px 14px 14px 14px;font-size:14.5px;line-height:1.5}
+.bulle p + p{margin-top:6px}
+.bulle-txt{display:flex;flex-direction:column;gap:6px}
+.bulle.moi{justify-content:flex-end}
+.bulle.moi p{background:var(--nuit);color:#fff;border-radius:14px 4px 14px 14px}
+.frappe p{display:flex;gap:4px;padding:14px}
+.frappe i{width:6px;height:6px;border-radius:50%;background:var(--prune);opacity:.4;animation:point 1s infinite}
+.frappe i:nth-child(2){animation-delay:.15s}.frappe i:nth-child(3){animation-delay:.3s}
+@keyframes point{50%{opacity:1}}
+.choix{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.choix button{text-align:left;background:#fff;border:1.5px solid var(--trait);border-radius:10px;padding:11px 12px;font-size:13.5px;font-weight:500;cursor:pointer;line-height:1.3;transition:border-color .15s,background .15s}
+.choix button:hover{border-color:var(--prune)}
+.choix button[aria-pressed="true"]{background:var(--vert);border-color:var(--vert);color:#fff}
+.champ{margin-top:14px}
+.champ label{display:block;font-size:13px;font-weight:500;margin-bottom:6px}
+.champ input,.champ textarea,.champ select{width:100%;border:1.5px solid var(--trait);border-radius:10px;padding:11px 12px;font-size:15px;background:#fff}
+.champ input:focus,.champ textarea:focus{border-color:var(--prune);outline:none;box-shadow:0 0 0 3px var(--prune-clair)}
+.champ-duo{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sam .btn-prune{width:100%;justify-content:center;margin-top:14px;padding:13px}
+.sam-pied{font-size:11.5px;color:var(--gris);text-align:center;margin:12px 0 0}
+.choix.une-colonne{grid-template-columns:1fr}
+.choix button{color:var(--texte)}
+.composer{display:flex;gap:10px;align-items:center;margin-top:14px}
+.composer[hidden]{display:none}
+.composer input{flex:1;min-width:0;border:1.5px solid var(--trait);border-radius:999px;padding:12px 18px;font-size:15px;background:#fff}
+.composer input:focus{border-color:var(--prune);outline:none;box-shadow:0 0 0 3px var(--prune-clair)}
+.composer button{flex:none;width:46px;height:46px;border-radius:50%;border:0;background:var(--prune);color:#fff;display:grid;place-items:center;cursor:pointer}
+.creneaux-chat{display:flex;flex-direction:column;gap:8px;min-width:230px}
+.creneaux-chat .creneau{margin:0;border-color:var(--vert);color:var(--vert)}
+.creneaux-chat .creneau span{color:var(--vert)}
+.creneaux-chat .creneau:first-child{background:var(--vert);color:#fff}
+.creneaux-chat .creneau:first-child span{color:#fff}
+.creneaux-chat .lien-txt{align-self:flex-start}
+.bulle-txt .grille-heures{min-width:230px}
+.chat-tete{display:none}
+
+/* Conversation plein écran (mobile) */
+body.chat-ouvert{overflow:hidden}
+.sam.plein-ecran{position:fixed;inset:0;z-index:200;border-radius:0;margin:0;display:flex;flex-direction:column;box-shadow:none}
+.sam.plein-ecran .sam-onglets,.sam.plein-ecran #p-diag,.sam.plein-ecran #p-offres,.sam.plein-ecran .sam-pied{display:none}
+.sam-rgpd{margin-top:4px}
+.sam-rgpd a{color:inherit}
+.sam.plein-ecran .sam-rgpd{display:block;background:#fff;margin:0;padding:0 14px 8px;font-size:11px}
+.sam.plein-ecran #p-sam{display:flex;flex-direction:column;flex:1;min-height:0;padding:0;background:var(--fond-2)}
+.sam.plein-ecran .chat-tete{display:flex;align-items:center;gap:12px;background:var(--prune);color:#fff;padding:14px 16px;padding-top:max(14px,env(safe-area-inset-top))}
+.chat-retour{background:none;border:0;color:#fff;width:40px;height:40px;display:grid;place-items:center;cursor:pointer;border-radius:50%}
+.chat-avatar{width:42px;height:42px;border-radius:50%;background:#fff;color:var(--prune);display:grid;place-items:center;font-family:var(--titre);font-size:22px}
+.chat-titres{display:flex;flex-direction:column;line-height:1.25}
+.chat-titres strong{font-size:16px}
+.chat-titres span{font-size:13px;opacity:.85}
+.sam.plein-ecran .fil{max-height:none;flex:1;padding:16px 14px}
+.sam.plein-ecran .bulle .avatar{display:none}
+.sam.plein-ecran .bulle p{background:#fff;border:1.5px solid var(--trait);border-radius:16px;font-size:15.5px;padding:12px 16px}
+.sam.plein-ecran .bulle.moi p{background:var(--nuit);border-color:var(--nuit);border-radius:16px}
+.sam.plein-ecran #zone{padding:0 14px;max-height:45vh;overflow-y:auto}
+.sam.plein-ecran #zone:empty{display:none}
+.sam.plein-ecran .composer{margin:0;padding:12px 14px;padding-bottom:max(12px,env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--trait)}
+
+/* Appel vocal */
+.chat-appeler{margin-left:auto;width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.55);background:none;color:#fff;display:grid;place-items:center;cursor:pointer}
+.chat-appeler[hidden],.composer-appel[hidden],[data-appel][hidden]{display:none}
+.composer-appel{flex:none;width:46px;height:46px;border-radius:50%;border:1.5px solid var(--prune);background:#fff;color:var(--prune);display:grid;place-items:center;cursor:pointer}
+.heros-actions svg{flex:none}
+.appel{display:flex;align-items:center;gap:14px;background:var(--nuit);color:#fff;border-radius:14px;padding:12px 14px;margin-bottom:12px}
+.appel[hidden]{display:none}
+.appel-avatar{position:relative;width:48px;height:48px;flex:none;display:grid;place-items:center}
+.appel-onde{position:absolute;inset:0;border-radius:50%;background:var(--corail);opacity:.35;transition:transform .12s ease-out}
+.appel-s{position:relative;width:40px;height:40px;border-radius:50%;background:#fff;color:var(--prune);display:grid;place-items:center;font-family:var(--titre);font-size:20px}
+.appel-infos{display:flex;flex-direction:column;line-height:1.3;flex:1;min-width:0}
+.appel-infos strong{font-size:15px}
+.appel-infos span{font-size:12.5px;opacity:.75;font-variant-numeric:tabular-nums}
+.appel-btn{flex:none;width:44px;height:44px;border-radius:50%;border:0;background:rgba(255,255,255,.14);color:#fff;display:grid;place-items:center;cursor:pointer}
+.appel-btn[aria-pressed="true"]{background:#fff;color:var(--nuit)}
+.appel-btn.raccrocher{background:#C62828}
+.sam.plein-ecran .appel{margin:12px 14px 0}
+
+/* Bulle flottante et fenêtre Sam flottante (ordinateur) */
+.bulle-flottante{position:fixed;right:20px;bottom:20px;z-index:150;display:flex;align-items:center;gap:10px;animation:apparait .25s ease-out}
+.bulle-flottante[hidden]{display:none}
+.bulle-etiquette{background:#fff;color:var(--nuit);font-size:14px;font-weight:500;padding:9px 14px;border-radius:999px;box-shadow:0 10px 30px -12px rgba(23,27,52,.45)}
+.bulle-bouton{width:62px;height:62px;border-radius:50%;border:0;background:var(--prune);color:#fff;font-family:var(--titre);font-size:28px;cursor:pointer;box-shadow:0 14px 34px -10px rgba(107,33,80,.7);display:grid;place-items:center}
+.bulle-bouton:hover{background:var(--prune-fonce)}
+.sam.plein-ecran.flottant{inset:auto 20px 20px auto;width:400px;height:min(640px,calc(100vh - 40px));border-radius:18px;box-shadow:var(--ombre);overflow:hidden}
+.sam-place{border:1.5px dashed rgba(255,255,255,.5);border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;text-align:center}
+.sam-place p{margin:0;opacity:.9}
+@media (max-width:560px){ .bulle-etiquette{display:none} .bulle-flottante{right:16px;bottom:16px} }
+
+/* Écran « Diagnostic confirmé » */
+.confirmation{position:fixed;inset:0;z-index:300;background:rgba(23,27,52,.55);display:grid;place-items:center;padding:24px;overflow-y:auto;animation:apparait .2s ease-out}
+.conf-carte{background:#fff;border-radius:22px;width:min(460px,100%);overflow:hidden;position:relative;box-shadow:var(--ombre)}
+.conf-fermer{position:absolute;top:12px;right:12px;width:38px;height:38px;border-radius:50%;border:0;background:rgba(255,255,255,.16);color:#fff;display:grid;place-items:center;cursor:pointer;z-index:1}
+.conf-fermer svg{width:18px;height:18px}
+.conf-tete{background:var(--prune);color:#fff;padding:34px 26px 30px;border-radius:0 0 26px 26px}
+.conf-coche{width:58px;height:58px;border-radius:50%;background:#fff;color:var(--vert);display:grid;place-items:center;margin-bottom:18px}
+.conf-coche svg{width:28px;height:28px}
+.conf-tete h2{font-size:clamp(40px,11vw,52px);margin:0 0 10px}
+.conf-tete p{margin:0;font-size:15.5px;opacity:.92}
+.conf-corps{padding:24px 26px 26px}
+.conf-fiche{background:var(--prune-clair);border-radius:16px;padding:6px 18px;margin:0}
+.conf-fiche > div{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0}
+.conf-fiche dt{color:var(--gris);font-size:15px}
+.conf-fiche dd{margin:0;font-weight:700;font-size:15.5px;text-align:right}
+.conf-fiche a{color:var(--prune)}
+.conf-avec{display:flex;align-items:center;gap:10px}
+.conf-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;flex:none}
+.mono-mini{display:grid;place-items:center;background:var(--prune);color:#fff;font-family:var(--titre);font-weight:400;font-size:15px}
+.conf-corps .fuseau{margin:10px 2px 0}
+.conf-corps h3{font-size:30px;color:var(--nuit);margin:24px 0 12px}
+.frise{list-style:none;margin:0 0 22px;padding:0}
+.frise li{position:relative;padding:0 0 14px 28px;font-size:15px;line-height:1.45}
+.frise li::before{content:"";position:absolute;left:2px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--prune)}
+.frise li.fait::before{background:var(--vert)}
+.conf-large{display:flex;width:100%;justify-content:center;padding:15px;font-size:16px;margin-top:10px}
+.conf-changer{background:#fff;border-color:var(--trait);color:var(--nuit)}
+@media (max-width:560px){
+  .confirmation{padding:0;place-items:stretch;background:#fff}
+  .conf-carte{width:100%;min-height:100%;border-radius:0;box-shadow:none}
+  .conf-tete{padding-top:max(40px,env(safe-area-inset-top))}
+}
+.lien-txt{background:none;border:0;color:var(--prune);text-decoration:underline;cursor:pointer;font-size:13px;padding:6px 0}
+.erreur{color:#B3261E;font-size:13px;margin:8px 0 0}
+.offres-mini{display:flex;flex-direction:column;gap:8px}
+.offres-mini a{display:flex;gap:12px;align-items:flex-start;padding:11px 12px;border:1.5px solid var(--trait);border-radius:10px;text-decoration:none}
+.offres-mini a:hover{border-color:var(--prune)}
+.offres-mini b{font-family:var(--titre);font-weight:400;color:var(--prune);font-size:20px;line-height:1}
+.offres-mini strong{display:block;font-size:14.5px}
+.offres-mini span{font-size:13px;color:var(--gris)}
+
+/* Agenda */
+.agenda-cadre{border:1.5px solid var(--trait);border-radius:12px;overflow:hidden;background:#fff}
+.agenda-cadre iframe{width:100%;height:620px;border:0;display:block}
+.agenda-attente{background:var(--fond-2);border:1.5px dashed var(--prune-trait);border-radius:12px;padding:14px 16px;font-size:14px}
+.agenda-attente strong{display:block;margin-bottom:2px}
+.ok{background:#EAF4EE;color:#1E5A3E;border-radius:10px;padding:12px 14px;font-size:14px;margin-top:12px}
+.agenda-titre{font-size:14px;font-weight:700;margin:0 0 10px}
+.creneau{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;border:1.5px solid var(--trait);background:#fff;border-radius:10px;padding:12px 14px;font-weight:700;font-size:14.5px;cursor:pointer;margin-bottom:8px;text-align:left}
+.creneau:hover{border-color:var(--prune)}
+.creneau span{font-weight:500;color:var(--gris);font-size:13px}
+.creneau[aria-pressed="true"]{background:var(--vert);border-color:var(--vert);color:#fff}
+.creneau[aria-pressed="true"] span{color:#fff}
+.jours{display:flex;gap:6px;overflow-x:auto;padding:4px 0 8px;margin-top:4px}
+.jours button{flex:none;border:1.5px solid var(--trait);background:#fff;border-radius:999px;padding:7px 12px;font-size:13px;font-weight:500;cursor:pointer}
+.jours button[aria-pressed="true"]{background:var(--nuit);border-color:var(--nuit);color:#fff}
+.grille-heures{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.grille-heures .creneau{justify-content:center;margin:0;padding:10px 6px}
+.autres[hidden],[data-agenda] [hidden]{display:none}
+.fuseau{font-size:12px;color:var(--gris);margin:8px 0 0}
+.resume-creneau{font-size:13.5px;font-weight:700;color:var(--vert);margin:12px 0 0}
+.btn-reserver{width:100%;justify-content:center;margin-top:12px;padding:13px}
+.confirme{text-align:center;padding:10px 4px}
+.confirme .coche{width:48px;height:48px;border-radius:50%;background:var(--vert);color:#fff;display:grid;place-items:center;font-size:24px;margin:0 auto 10px}
+.confirme strong{font-family:var(--titre);font-weight:400;font-size:26px;color:var(--nuit);display:block}
+.confirme p{margin:8px 0 0;font-size:14.5px}
+.confirme-actions{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.btn-contour-prune{border-color:var(--prune);color:var(--prune);background:#fff}
+
+/* À propos */
+.apropos{padding:130px 0 90px}
+.apropos-grille{display:grid;grid-template-columns:.35fr 1fr;gap:48px}
+.etiquette{display:inline-block;background:var(--prune-clair);color:var(--prune);font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px}
+.apropos .lieux{margin-top:18px;font-size:13px;line-height:1.8}
+.apropos .lieux b{font-weight:700}
+.apropos .lieux span{color:var(--gris)}
+.apropos-texte{font-family:var(--titre);font-size:clamp(26px,3.3vw,40px);line-height:1.18;margin:0;color:var(--nuit)}
+.apropos-texte span{color:var(--gris-clair)}
+
+/* Métiers */
+.metiers{padding:30px 0 100px}
+.section-tete{display:grid;grid-template-columns:1fr 360px;gap:40px;align-items:end;margin-bottom:40px}
+.section-tete h2{font-size:clamp(46px,6.5vw,86px);color:var(--nuit)}
+.section-tete p{margin:0;color:var(--gris)}
+.cartes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.carte{background:#fff;border:1.5px solid var(--trait);border-radius:var(--rayon);padding:18px 18px 22px;text-align:left;cursor:pointer;transition:transform .15s,box-shadow .15s,border-color .15s;display:flex;flex-direction:column;gap:10px;min-height:190px}
+.carte:hover{transform:translateY(-3px);box-shadow:0 18px 36px -20px rgba(107,33,80,.5);border-color:var(--prune-trait)}
+.carte .num{display:inline-grid;place-items:center;min-width:34px;height:28px;padding:0 8px;border-radius:7px;border:1.5px solid var(--trait);font-size:12px;font-weight:700;align-self:flex-start}
+.carte h3{font-family:var(--titre);font-weight:400;font-size:22px;line-height:1.1;margin:0;color:var(--prune)}
+.carte p{margin:0;font-size:13.5px;color:var(--gris)}
+.carte .cta{margin-top:auto;font-size:13px;font-weight:700;color:var(--prune);opacity:0;transition:opacity .15s}
+.carte:hover .cta,.carte:focus-visible .cta{opacity:1}
+.carte.pleine{background:var(--prune);border-color:var(--prune);color:#fff}
+.carte.pleine .num{border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.12)}
+.carte.pleine h3,.carte.pleine p,.carte.pleine .cta{color:#fff}
+.carte.pleine p{opacity:.88}
+
+/* Offres */
+.offres{background:var(--nuit);color:#fff;padding:90px 0}
+.offres .etiquette{background:#fff;color:var(--nuit)}
+.offres h2{font-size:clamp(34px,4.4vw,56px);text-align:center;margin:18px 0 44px}
+.offres-grille{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.offre{background:#fff;color:var(--texte);border-radius:var(--rayon);padding:22px;display:flex;flex-direction:column;gap:10px;min-height:280px}
+.offre .lettre{font-weight:700;font-size:13px;color:var(--prune)}
+.offre h3{font-family:var(--titre);font-weight:400;font-size:26px;line-height:1.08;margin:0;color:var(--nuit)}
+.offre p{margin:0;font-size:14px;color:var(--gris)}
+.offre .modalite{margin-top:auto;font-size:13px;font-weight:700;padding-top:14px}
+.offre.phare{background:var(--prune);color:#fff}
+.offre.phare .lettre,.offre.phare h3,.offre.phare p{color:#fff}
+.offre.phare p{opacity:.9}
+.offre .lien-tarifs{color:#fff;text-decoration:underline;text-underline-offset:3px}
+
+/* Tarifs */
+.tarifs{background:var(--fond-2);padding:90px 0}
+.tarifs h2{font-size:clamp(34px,4.4vw,56px);color:var(--nuit);margin:14px 0 0}
+.tarifs-metiers{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.tarifs-metiers button{font:inherit;font-size:14px;font-weight:700;padding:9px 16px;border-radius:999px;border:1.5px solid var(--prune-trait);background:#fff;color:var(--texte);cursor:pointer}
+.tarifs-metiers button:hover{border-color:var(--prune)}
+.tarifs-metiers button[aria-pressed="true"]{background:var(--nuit);border-color:var(--nuit);color:#fff}
+.tarifs-metiers button:focus-visible{outline:3px solid var(--corail);outline-offset:2px}
+.tarifs-grille{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.formule{background:#fff;border:1.5px solid var(--prune-trait);border-radius:var(--rayon);padding:26px;display:flex;flex-direction:column;gap:6px}
+.formule.phare{border-color:var(--prune);box-shadow:var(--ombre)}
+.formule h3{font-family:var(--titre);font-weight:400;font-size:30px;margin:0;color:var(--nuit)}
+.formule .pour{margin:0;color:var(--gris);font-size:14px}
+.formule .apartir{margin:14px 0 0;font-size:13px;color:var(--gris)}
+.formule .prix{font-family:var(--titre);font-size:54px;line-height:1;color:var(--prune)}
+.formule .prix small{font-family:var(--corps);font-size:14px;color:var(--gris);font-weight:700;margin-left:6px}
+.formule ul{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:9px;font-size:14.5px}
+.formule li{display:flex;gap:9px;align-items:flex-start}
+.formule li::before{content:"";flex:none;width:16px;height:16px;margin-top:3px;border-radius:50%;background:var(--prune-clair) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.6 2.6L12 5.6' fill='none' stroke='%236B2150' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+.formule .rentable{margin-top:auto;padding-top:16px;border-top:1px solid var(--trait);font-size:14px;color:var(--vert);font-weight:700}
+.formule .rentable span{display:block;font-weight:400;color:var(--gris);font-size:13px}
+.tarifs-bas{display:flex;justify-content:space-between;align-items:center;gap:24px;margin-top:22px;flex-wrap:wrap}
+.tarifs-bas p{margin:0;font-size:13px;color:var(--gris);max-width:760px}
+.tarifs-bas .btn-prune{width:auto;margin-top:0}
+@media (max-width:920px){.tarifs-grille{grid-template-columns:1fr}.tarifs{padding:64px 0}}
+
+/* Méthode */
+.methode{padding:100px 0 40px}
+.methode h2{font-size:clamp(34px,4.4vw,56px);color:var(--nuit);margin-bottom:36px}
+.etapes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.etape{background:var(--fond-2);border:1.5px solid var(--prune-trait);border-radius:var(--rayon);padding:24px}
+.etape .n{font-family:var(--titre);font-size:52px;color:var(--prune);line-height:1}
+.etape h3{font-family:var(--titre);font-weight:400;font-size:24px;margin:10px 0 8px;color:var(--nuit)}
+.etape p{margin:0;color:var(--gris);font-size:14.5px}
+.reference{margin-top:20px;border:1.5px solid var(--trait);border-radius:var(--rayon);padding:16px 20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px}
+.reference span{color:var(--gris)}
+.reference[hidden]{display:none}
+
+/* Bureaux */
+.bureaux{padding:80px 0 100px}
+.bureaux .section-tete h2{font-size:clamp(34px,4.4vw,56px)}
+.bureaux-grille{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.bureau{background:var(--fond-2);border-radius:var(--rayon);overflow:hidden}
+.bureau svg{width:100%;height:auto;aspect-ratio:16/7}
+.bureau div{padding:18px 22px 24px}
+.bureau h3{font-family:var(--titre);font-weight:400;font-size:24px;margin:0 0 4px;color:var(--nuit)}
+.bureau p{margin:0;color:var(--gris);font-size:14px}
+
+/* Diagnostic */
+.diagnostic{padding:0 0 90px}
+.diag-bloc{background:var(--prune);color:#fff;border-radius:22px;padding:40px;display:grid;grid-template-columns:220px 1fr 1.05fr;gap:36px;align-items:start}
+.portrait{margin:0}
+.portrait-img{border-radius:14px;overflow:hidden;background:var(--prune-fonce);aspect-ratio:4/5;position:relative}
+.portrait-img img{width:100%;height:100%;object-fit:cover;object-position:50% 12%}
+.portrait .mono{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--titre);font-size:64px;color:rgba(255,255,255,.85);background:linear-gradient(160deg,#7c2a5e,#3e1029)}
+.portrait figcaption{margin-top:10px;font-size:13px;line-height:1.4;opacity:.9}
+.portrait figcaption strong{display:block;font-size:14px}
+.diag-bloc h2{font-size:clamp(32px,3.6vw,46px);margin-bottom:14px}
+.diag-bloc > div > p{opacity:.92;margin:0 0 14px}
+.diag-bloc ul{margin:0;padding-left:18px;opacity:.92;font-size:14.5px}
+.diag-reservation{background:#fff;color:var(--texte);border-radius:16px;padding:18px}
+.diag-reservation h3{font-size:14px;margin:0 0 10px;font-weight:700}
+.diag-reservation .agenda-cadre iframe{height:560px}
+
+/* Pied */
+.pied{background:var(--nuit);color:rgba(255,255,255,.8);padding:48px 0 30px;font-size:14px}
+.pied-grille{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
+.pied .logo{color:#fff;display:inline-block;margin-bottom:10px}
+.pied a{color:#fff;text-decoration:none}
+.pied a:hover{text-decoration:underline}
+.pied h4{color:#fff;margin:0 0 10px;font-size:14px}
+.pied ul{list-style:none;margin:0;padding:0;line-height:2}
+.pied-bas{border-top:1px solid rgba(255,255,255,.12);margin-top:32px;padding-top:18px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;opacity:.7}
+
+/* Adaptation */
+@media (max-width:1080px){
+  .cartes{grid-template-columns:repeat(2,1fr)}
+  .offres-grille{grid-template-columns:repeat(2,1fr)}
+  .diag-bloc{grid-template-columns:180px 1fr}
+  .diag-reservation{grid-column:1/-1}
+}
+@media (max-width:920px){
+  .nav{display:none;position:absolute;top:100%;left:16px;right:16px;flex-direction:column;align-items:stretch;border-radius:14px;padding:10px;box-shadow:var(--ombre)}
+  .nav.ouvert{display:flex}
+  .nav a{padding:12px}
+  .langues{border-left:0;border-top:1px solid var(--trait);padding:10px 4px 2px;margin:4px 0 0}
+  .burger{display:grid;place-items:center}
+  .entete .btn-blanc{display:none}
+  .heros-grille{grid-template-columns:1fr;gap:32px}
+  .sam{margin-bottom:-40px}
+  .apropos{padding:100px 0 60px}
+  .apropos-grille,.section-tete{grid-template-columns:1fr;gap:18px}
+  .etapes,.bureaux-grille{grid-template-columns:1fr}
+  .pied-grille{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .wrap{width:calc(100% - 32px)}
+  .cartes,.offres-grille{grid-template-columns:1fr}
+  .carte{min-height:0}
+  .carte .cta{opacity:1}
+  .diag-bloc{grid-template-columns:1fr;padding:24px}
+  .portrait{max-width:200px}
+  .choix{grid-template-columns:1fr}
+  .champ-duo{grid-template-columns:1fr}
+  .logo span{font-size:16px}.logo{font-size:21px}
+}
+</style>
+</head>
+<body>
+<a class="saut" href="#contenu">Aller au contenu</a>
+
+<header class="entete" id="entete">
+  <div class="wrap entete-in">
+    <a class="logo" href="#haut">SALW <span>CONSULTING</span></a>
+    <nav class="nav" id="nav" aria-label="Navigation principale">
+      <a href="#metiers">Votre métier</a>
+      <a href="#offres">Nos offres</a>
+      <a href="#tarifs">Tarifs</a>
+      <a href="#methode">Méthode</a>
+      <a href="#contact">Contact</a>
+      <div class="langues" role="group" aria-label="Langue">
+        <button type="button" aria-current="true" lang="fr">FR</button><span class="sep" aria-hidden="true">·</span>
+        <button type="button" aria-disabled="true" lang="nb" title="Norsk versjon kommer snart">NO</button><span class="sep" aria-hidden="true">·</span>
+        <button type="button" aria-disabled="true" lang="en" title="English version coming soon">EN</button>
+      </div>
+    </nav>
+    <a class="btn btn-blanc" href="#contact" data-ouvrir="diag">Diagnostic gratuit</a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Ouvrir le menu">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 5h14M3 10h14M3 15h14"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="contenu">
+  <section class="heros" id="haut">
+    <div class="wrap">
+      <span class="localite">Drammen · Kinshasa · à distance partout en francophonie</span>
+      <div class="heros-grille">
+        <div>
+          <h1 class="titre">Aucune demande perdue. Aucun rendez-vous oublié.</h1>
+          <p class="heros-accroche">Nous intégrons l'IA et l'automatisation dans les entreprises de services : réponse aux appels manqués, prise de rendez-vous, relances et avis clients, 24 h sur 24.</p>
+          <div class="heros-actions">
+            <a class="btn btn-blanc" href="#sam" data-ouvrir="sam">Parler à Sam
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+            <a class="btn btn-contour" href="#offres">Voir nos offres</a>
+            <button type="button" class="btn btn-contour" data-appel hidden><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.2 2.8l2 3.4-1.5 1.5a10 10 0 0 0 5.6 5.6l1.5-1.5 3.4 2-.8 2.6c-.2.6-.8 1-1.4.9C8.6 16.6 3.4 11.4 2.7 5c-.1-.6.3-1.2.9-1.4z"/></svg>Appeler Sam</button>
+          </div>
+        </div>
+
+        <!-- ============ WIDGET SAM ============ -->
+        <div class="sam" id="sam">
+          <div class="sam-onglets" role="tablist" aria-label="Sam, conseiller SALW">
+            <button type="button" role="tab" id="t-sam" aria-controls="p-sam" aria-selected="true">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 15.5V17l2.5-1.6H14a3 3 0 0 0 3-3V6.5a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v6a3 3 0 0 0 1 2.2z"/></svg>
+              Parler à Sam</button>
+            <button type="button" role="tab" id="t-diag" aria-controls="p-diag" aria-selected="false" tabindex="-1">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4.5" width="14" height="12.5" rx="2"/><path d="M3 8.5h14M7 2.5v4M13 2.5v4"/></svg>
+              Diagnostic 30 min</button>
+            <button type="button" role="tab" id="t-offres" aria-controls="p-offres" aria-selected="false" tabindex="-1">
+              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="6" height="6" rx="1.4"/><rect x="11" y="3" width="6" height="6" rx="1.4"/><rect x="3" y="11" width="6" height="6" rx="1.4"/><rect x="11" y="11" width="6" height="6" rx="1.4"/></svg>
+              Nos offres</button>
+          </div>
+
+          <div class="sam-panneau" role="tabpanel" id="p-sam" aria-labelledby="t-sam">
+            <div class="chat-tete">
+              <button type="button" class="chat-retour" id="chat-retour" aria-label="Revenir à la page">
+                <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.5 4.5L7 10l5.5 5.5"/></svg>
+              </button>
+              <span class="chat-avatar" aria-hidden="true">S</span>
+              <span class="chat-titres"><strong>Sam · SALW CONSULTING</strong><span>Conseiller virtuel · en ligne</span></span>
+              <button type="button" class="chat-appeler" data-appel hidden aria-label="Appeler Sam"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.2 2.8l2 3.4-1.5 1.5a10 10 0 0 0 5.6 5.6l1.5-1.5 3.4 2-.8 2.6c-.2.6-.8 1-1.4.9C8.6 16.6 3.4 11.4 2.7 5c-.1-.6.3-1.2.9-1.4z"/></svg></button>
+            </div>
+            <div class="appel" id="appel" role="region" aria-label="Appel avec Sam" aria-live="polite" hidden>
+              <div class="appel-avatar" aria-hidden="true"><span class="appel-onde" id="appel-onde"></span><span class="appel-s">S</span></div>
+              <div class="appel-infos"><strong id="appel-statut">Connexion…</strong><span id="appel-duree">00:00</span></div>
+              <button type="button" class="appel-btn" id="appel-micro" aria-pressed="false" aria-label="Couper le micro">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><rect x="7" y="2.5" width="6" height="10" rx="3"/><path d="M4.5 9.5a5.5 5.5 0 0 0 11 0M10 15v2.5"/></svg>
+              </button>
+              <button type="button" class="appel-btn raccrocher" id="appel-fin" aria-label="Raccrocher">
+                <svg width="22" height="22" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 11.5c4.4-4 10.6-4 15 0l-1.8 2.2-3-1v-2.3a8 8 0 0 0-5.4 0v2.3l-3 1z"/></svg>
+              </button>
+            </div>
+            <div class="fil" id="fil" aria-live="polite"></div>
+            <div id="zone"></div>
+            <form class="composer" id="composer" hidden>
+              <label for="saisie" class="sr-only">Votre message à Sam</label>
+              <input id="saisie" type="text" autocomplete="off" maxlength="400" placeholder="Écrire un message…">
+              <button type="button" class="composer-appel" data-appel hidden aria-label="Appeler Sam"><svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.2 2.8l2 3.4-1.5 1.5a10 10 0 0 0 5.6 5.6l1.5-1.5 3.4 2-.8 2.6c-.2.6-.8 1-1.4.9C8.6 16.6 3.4 11.4 2.7 5c-.1-.6.3-1.2.9-1.4z"/></svg></button>
+              <button type="submit" aria-label="Envoyer">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 2.5L8.6 11.4M17.5 2.5l-5.6 15-3.3-6.1-6.1-3.3z"/></svg>
+              </button>
+            </form>
+            <p class="sam-pied">Réponse en français, norsk ou English · Site, WhatsApp, SMS, Messenger, Instagram</p>
+            <p class="sam-pied sam-rgpd">Vos échanges avec Sam sont conservés 30 jours pour préparer votre diagnostic. <a href="confidentialite.php">Confidentialité</a></p>
+          </div>
+
+          <div class="sam-panneau" role="tabpanel" id="p-diag" aria-labelledby="t-diag" hidden>
+            <div class="agenda" data-agenda></div>
+          </div>
+
+          <div class="sam-panneau" role="tabpanel" id="p-offres" aria-labelledby="t-offres" hidden>
+            <div class="offres-mini">
+              <a href="#offres"><b>A</b><div><strong>Plateforme SALW par métier</strong><span>Appels manqués, rendez-vous, rappels, avis, assistant 24/7. Abonnement mensuel.</span></div></a>
+              <a href="#offres"><b>B</b><div><strong>Intégration IA sur mesure</strong><span>Audit, agents IA, automatisations, gouvernance. Sur devis.</span></div></a>
+              <a href="#offres"><b>C</b><div><strong>Formation IA</strong><span>Dirigeants et équipes, avec Apprenneur Académie.</span></div></a>
+              <a href="#offres"><b>D</b><div><strong>Sites &amp; applications</strong><span>Conçus pour générer des demandes. Sur devis.</span></div></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="apropos" aria-labelledby="apropos-titre">
+    <div class="wrap apropos-grille">
+      <div>
+        <span class="etiquette" id="apropos-titre">À propos</span>
+        <div class="lieux"><b>Drammen</b> <span>· Norvège</span><br><b>Kinshasa</b> <span>· RD Congo</span></div>
+      </div>
+      <p class="apropos-texte">Vos clients vous écrivent à toute heure, sur tous les canaux. Nous faisons en sorte que chacun reçoive une réponse, <span>un rendez-vous et un suivi, sans que vous ayez un logiciel de plus à administrer.</span></p>
+    </div>
+  </section>
+
+  <section class="metiers" id="metiers" aria-labelledby="metiers-titre">
+    <div class="wrap">
+      <div class="section-tete">
+        <h2 class="titre" id="metiers-titre">Votre métier, votre douleur</h2>
+        <p>Sam reconnaît votre activité et vous répond avec le problème que vous vivez, pas avec une brochure générique. Choisissez votre métier pour commencer.</p>
+      </div>
+      <div class="cartes" id="cartes"></div>
+    </div>
+  </section>
+
+  <section class="offres" id="offres" aria-labelledby="offres-titre">
+    <div class="wrap" style="text-align:center">
+      <span class="etiquette">Ce que nous faisons</span>
+      <h2 class="titre" id="offres-titre">Quatre façons de travailler avec SALW</h2>
+      <div class="offres-grille" style="text-align:left">
+        <article class="offre phare">
+          <span class="lettre">A</span>
+          <h3>Plateforme SALW par métier</h3>
+          <p>Appels manqués, rendez-vous en ligne, rappels SMS / WhatsApp / e-mail, relance des devis, avis Google, réactivation, assistant IA 24/7.</p>
+          <a class="modalite lien-tarifs" href="#tarifs">Abonnement mensuel, à partir de 149 € HT →</a>
+        </article>
+        <article class="offre">
+          <span class="lettre">B</span>
+          <h3>Intégration IA sur mesure</h3>
+          <p>Audit des processus, agents IA, automatisations, formation des équipes, gouvernance et conformité.</p>
+          <span class="modalite">Sur devis après diagnostic</span>
+        </article>
+        <article class="offre">
+          <span class="lettre">C</span>
+          <h3>Formation IA</h3>
+          <p>Programmes pour dirigeants et équipes sur l'usage de l'IA au travail, avec Apprenneur Académie.</p>
+          <span class="modalite">Intra ou inter-entreprises</span>
+        </article>
+        <article class="offre">
+          <span class="lettre">D</span>
+          <h3>Sites &amp; applications</h3>
+          <p>Sites et applications web ou mobiles conçus pour générer des demandes, pas seulement pour présenter l'entreprise.</p>
+          <span class="modalite">Sur devis</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="tarifs" id="tarifs" aria-labelledby="tarifs-titre">
+    <div class="wrap">
+      <div class="section-tete">
+        <div>
+          <span class="etiquette">Offre A · Plateforme SALW par métier</span>
+          <h2 class="titre" id="tarifs-titre">Un prix selon votre taille, pas selon vos options</h2>
+        </div>
+        <p>Toutes les automatisations sont incluses dans chaque formule : appels manqués, rappels, liste d'attente, avis Google, relances, assistant 24/7, rapport mensuel. Seul le volume change. Le prix tient compte de votre métier, parce qu'un rendez-vous ne vaut pas la même chose chez un avocat et chez un généraliste.</p>
+      </div>
+      <div class="tarifs-metiers" role="group" aria-label="Votre métier" id="tarifs-metiers"></div>
+      <div class="tarifs-grille" id="tarifs-grille" aria-live="polite"></div>
+      <div class="tarifs-bas">
+        <p id="tarifs-note"></p>
+        <a class="btn btn-prune" href="#contact" data-ouvrir="diag">Obtenir mon prix exact</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="methode" id="methode" aria-labelledby="methode-titre">
+    <div class="wrap">
+      <h2 class="titre" id="methode-titre">Trois étapes, zéro jargon</h2>
+      <div class="etapes">
+        <article class="etape">
+          <div class="n">01</div>
+          <h3>Échangez avec Sam</h3>
+          <p>Trois questions, en deux minutes, pour cerner votre activité, votre équipe et le problème qui vous coûte le plus.</p>
+        </article>
+        <article class="etape">
+          <div class="n">02</div>
+          <h3>Diagnostic gratuit de 30 min</h3>
+          <p>En visio avec Albert, directeur général : on chiffre ce que le problème vous coûte et on vous montre la solution sur votre cas.</p>
+        </article>
+        <article class="etape">
+          <div class="n">03</div>
+          <h3>Mise en place par SALW</h3>
+          <p>Nous configurons et opérons la plateforme sous la marque SALW. Vous n'avez rien à administrer.</p>
+        </article>
+      </div>
+      <!-- Bandeau « Référence » : masqué tant qu'aucun fait daté et vérifiable n'est
+           renseigné dans la constante REFERENCE du script (voir README). -->
+      <div class="reference" id="reference" hidden>
+        <div><b>Référence :</b> <span id="reference-texte"></span></div>
+        <span>Norvège · Europe francophone · Afrique francophone</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="bureaux" aria-labelledby="bureaux-titre">
+    <div class="wrap">
+      <div class="section-tete">
+        <h2 class="titre" id="bureaux-titre">Deux bureaux, un même standard</h2>
+        <p>Missions à distance ou sur place selon le projet, en Norvège, en Europe francophone et en Afrique francophone.</p>
+      </div>
+      <div class="bureaux-grille">
+        <article class="bureau">
+          <svg viewBox="0 0 640 280" role="img" aria-label="Illustration : montagnes et pont de Drammen">
+            <rect width="640" height="280" fill="#F3E6EE"/>
+            <path d="M0 190 L90 110 L150 150 L240 70 L330 150 L400 100 L480 160 L560 90 L640 140 V280 H0Z" fill="#C9A3B8"/>
+            <path d="M0 215 L70 160 L140 195 L220 130 L300 190 L380 150 L460 200 L540 150 L640 190 V280 H0Z" fill="#A87391"/>
+            <path d="M0 238 H640 V280 H0Z" fill="#171B34"/>
+            <path d="M70 238 Q320 150 570 238" fill="none" stroke="#fff" stroke-width="7"/>
+            <g stroke="#fff" stroke-width="3">
+              <line x1="130" y1="238" x2="130" y2="207"/><line x1="190" y1="238" x2="190" y2="188"/><line x1="255" y1="238" x2="255" y2="176"/>
+              <line x1="320" y1="238" x2="320" y2="172"/><line x1="385" y1="238" x2="385" y2="176"/><line x1="450" y1="238" x2="450" y2="188"/><line x1="510" y1="238" x2="510" y2="207"/>
+            </g>
+            <rect x="560" y="190" width="44" height="48" fill="#fff"/><path d="M552 192 L582 168 L612 192Z" fill="#6B2150"/>
+            <rect x="575" y="208" width="14" height="30" fill="#6B2150"/>
+          </svg>
+          <div><h3>Drammen · Norvège</h3><p>Bureau Europe et Scandinavie. Accompagnement en français, norvégien et anglais.</p></div>
+        </article>
+        <article class="bureau">
+          <svg viewBox="0 0 640 280" role="img" aria-label="Illustration : tours et palmiers de Kinshasa">
+            <rect width="640" height="280" fill="#F3E6EE"/>
+            <circle cx="520" cy="80" r="38" fill="#E8A07A"/>
+            <rect x="200" y="120" width="56" height="118" fill="#A87391"/>
+            <rect x="262" y="70" width="60" height="168" fill="#171B34"/>
+            <rect x="328" y="100" width="54" height="138" fill="#6B2150"/>
+            <rect x="388" y="140" width="50" height="98" fill="#A87391"/>
+            <rect x="444" y="110" width="44" height="128" fill="#6B2150"/>
+            <g fill="#F3E6EE" opacity=".55">
+              <rect x="276" y="90" width="10" height="130"/><rect x="298" y="90" width="10" height="130"/>
+            </g>
+            <path d="M0 238 H640 V280 H0Z" fill="#171B34"/>
+            <g fill="none" stroke="#2F6B50" stroke-width="6" stroke-linecap="round">
+              <path d="M110 238 Q104 180 116 140"/>
+              <path d="M116 140 Q80 125 60 140"/><path d="M116 140 Q140 112 170 120"/><path d="M116 140 Q96 108 78 104"/><path d="M116 140 Q150 140 160 162"/><path d="M116 140 Q90 150 84 172"/>
+              <path d="M570 238 Q576 196 566 166"/>
+              <path d="M566 166 Q540 152 522 164"/><path d="M566 166 Q588 144 612 152"/><path d="M566 166 Q594 170 600 188"/>
+            </g>
+          </svg>
+          <div><h3>Kinshasa · RD Congo</h3><p>Siège Afrique. Accompagnement des PME, écoles et institutions, sur place ou à distance.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="diagnostic" id="contact" aria-labelledby="diag-titre">
+    <div class="wrap">
+      <div class="diag-bloc">
+        <figure class="portrait" id="portrait">
+          <div class="portrait-img"><div class="mono" aria-hidden="true">AW</div></div>
+          <figcaption><strong>Albert</strong>Directeur général, anime chaque diagnostic</figcaption>
+        </figure>
+        <div>
+          <h2 class="titre" id="diag-titre">Chiffrons ensemble ce que ce problème vous coûte</h2>
+          <p>Diagnostic gratuit de 30 minutes en visio, du lundi au vendredi. Un court questionnaire de préparation vous est envoyé par e-mail.</p>
+          <ul>
+            <li>Ce que le problème vous coûte, en chiffres</li>
+            <li>La solution montrée sur votre cas</li>
+            <li>Aucun engagement</li>
+          </ul>
+        </div>
+        <div class="diag-reservation">
+          <div class="agenda" data-agenda></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pied">
+  <div class="wrap">
+    <div class="pied-grille">
+      <div>
+        <a class="logo" href="#haut">SALW <span>CONSULTING</span></a>
+        <p style="margin:0;max-width:340px">Intégration de l'IA et automatisation commerciale.</p>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:albert@salw-consulting.com">albert@salw-consulting.com</a></li>
+          <li><a href="tel:+4794836971">+47 948 36 971</a></li>
+          <li><a href="https://salw-consulting.com">salw-consulting.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Bureaux</h4>
+        <ul><li>Drammen · Norvège</li><li>Kinshasa · RD Congo (siège)</li></ul>
+      </div>
+    </div>
+    <div class="pied-bas">
+      <span>© <span id="annee">2026</span> SALW CONSULTING SPRL</span>
+      <span>Les réponses données à Sam servent uniquement à préparer votre diagnostic. <a href="confidentialite.php">Confidentialité</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="bulle-flottante" id="bulle-flottante" hidden>
+  <span class="bulle-etiquette" aria-hidden="true">Une question ? Parlez à Sam</span>
+  <button type="button" class="bulle-bouton" id="bulle-ouvrir" aria-label="Parler à Sam, conseiller virtuel"><span aria-hidden="true">S</span></button>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  /* =====================================================================
+     RÉGLAGES : les seules lignes à modifier.
+     ===================================================================== */
+
+  // Réservation intégrée : créneaux, réservation et e-mails sont gérés par les
+  // scripts PHP du dossier (horaires réglés dans prive/config.php).
+  var CRENEAUX = "creneaux.php";
+  var RESERVER = "reserver.php";
+
+  // Option : lien Cal.com ou Calendly qui REMPLACE la réservation intégrée.
+  // Laisser vide pour garder la réservation intégrée (recommandé).
+  var AGENDA_URL = "";
+
+  // Enregistrement des conversations pour l'espace admin (prospects).
+  var CONVERSATION_URL = "conversation.php";
+
+  // Agent IA (chat Claude et appel vocal Vapi). Réglages et clés : prive/config.php.
+  var IA_URL = "ia.php";
+
+  // Script qui reçoit les demandes de créneau de repli (serveur indisponible).
+  var ENDPOINT = "contact.php";
+
+  var EMAIL_CONTACT = "albert@salw-consulting.com";
+
+  // Fait daté et vérifiable à afficher dans le bandeau « Référence ».
+  // Laisser vide tant qu'aucun fait réel n'est validé : le bandeau reste masqué.
+  var REFERENCE = "";
+
+  // Photo d'Albert (déposer le fichier dans img/). Sans elle, le monogramme AW s'affiche.
+  var PHOTO = "img/albert.jpg";
+  var PHOTO_AVATAR = "img/albert-avatar.jpg"; // recadrage sur le visage, pour la pastille de confirmation
+
+  /* =====================================================================
+     DONNÉES MÉTIER
+     ===================================================================== */
+
+  var METIERS = [
+    { id: "juridique", nom: "Cabinets juridiques & comptables", court: "un cabinet",
+      carte: "Appels manqués pendant les rendez-vous, consultations mal qualifiées, pièces qui arrivent au compte-gouttes.",
+      mots: ["avocat", "notaire", "notari", "juriste", "juridique", "comptab", "fiscal", "huissier", "audit", "expert"],
+      accroche: "Dans les cabinets, c'est presque toujours le même problème : des appels manqués pendant les rendez-vous.",
+      solution: "réponse immédiate aux appels manqués, pré-qualification des consultations, collecte automatique des pièces" },
+    { id: "sante", nom: "Cliniques & santé", court: "une structure de santé",
+      carte: "Rendez-vous non honorés et patients qui ne reviennent pas. Rappels intelligents, sans données médicales stockées.",
+      mots: ["clinique", "médec", "medec", "docteur", "dentist", "dentaire", "médical", "medical", "polyclinique", "maternité", "maternite", "laboratoire", "soins", "kiné", "kine", "santé", "sante", "infirm", "ostéo", "osteo", "psycholog", "pharmac", "hôpital", "hopital", "optic", "sage-femme"],
+      accroche: "Dans la santé, le problème revient souvent : des rendez-vous non honorés que personne ne remplace.",
+      solution: "rappels SMS ou WhatsApp, liste d'attente qui remplit les créneaux libérés, relance des patients, sans données médicales stockées" },
+    { id: "immobilier", nom: "Immobilier", court: "une agence",
+      carte: "Un lead rappelé après une heure est déjà chez un concurrent. Réponse en moins de 60 secondes.",
+      mots: ["immobil", "agence immo", "promoteur", "syndic", "location", "gestion locative", "foncier", "agent immo"],
+      accroche: "En immobilier, tout se joue sur la vitesse : le premier qui répond obtient la visite.",
+      solution: "réponse en moins de 60 secondes, qualification du projet, prise de rendez-vous de visite" },
+    { id: "artisan", nom: "Artisans & services à domicile", court: "une entreprise",
+      carte: "Sur le chantier, les appels passent à la trappe. SMS automatique, relance des devis, avis après intervention.",
+      mots: ["artisan", "plomb", "électric", "electric", "menuis", "peintr", "maçon", "macon", "chauffag", "couvreur", "nettoyage", "ménage", "menage", "jardin", "serrur", "déménag", "demenag", "btp", "rénovation", "renovation", "climatis", "vitrier", "carrel"],
+      accroche: "Sur un chantier, on ne peut pas décrocher : les appels et les devis passent à la trappe.",
+      solution: "SMS automatique à chaque appel manqué, relance des devis, demande d'avis Google après intervention" },
+    { id: "coach", nom: "Coachs, consultants, formateurs", court: "une activité",
+      carte: "Cinq ou six outils qui ne se parlent pas. Tunnels, agenda, paiements et cours sur une seule plateforme.",
+      mots: ["coach", "consultant", "conseil", "formateur", "formatrice", "thérapeut", "therapeut", "conférenc", "mentor", "freelance", "indépendant"],
+      accroche: "Chez les coachs et consultants, c'est souvent la dispersion : trop d'outils qui ne se parlent pas.",
+      solution: "une seule plateforme pour les tunnels, l'agenda, les paiements, les relances et les cours" },
+    { id: "ecole", nom: "Écoles & universités privées", court: "un établissement",
+      carte: "Préinscriptions sur WhatsApp et Excel, recouvrement des frais épuisant. Admissions et relances automatisées.",
+      mots: ["école", "ecole", "universit", "institut", "lycée", "lycee", "collège", "college", "complexe scolaire", "enseignement", "académie", "academie", "crèche", "creche", "centre de formation"],
+      accroche: "Dans les écoles privées, les préinscriptions et le recouvrement des frais épuisent l'administration.",
+      solution: "admissions en ligne, suivi des dossiers, relances automatiques et courtoises pour les frais" },
+    { id: "garage", nom: "Garages & auto-écoles", court: "un garage",
+      carte: "Révisions oubliées, devis d'atelier sans réponse. Rappels au bon moment, agenda rempli.",
+      mots: ["garage", "auto-école", "auto école", "auto-ecole", "mécani", "mecani", "carross", "concession", "pneu", "moto", "contrôle technique", "lavage auto"],
+      accroche: "Au garage, les révisions oubliées et les devis sans réponse laissent des trous dans l'agenda.",
+      solution: "rappels de révision au bon moment, relance des devis d'atelier, prise de rendez-vous en ligne" },
+    { id: "grands", nom: "Grands comptes & institutions", court: "une organisation",
+      carte: "Pas un outil mais une intégration : processus prioritaires, gouvernance, formation des équipes.",
+      mots: ["ministère", "ministere", "office", "direction générale", "direction generale", "banque", "administration", "institution", "groupe", "société nationale", "societe nationale", "ong", "mairie", "commune", "province", "établissement public", "etablissement public", "assurance", "télécom", "telecom", "mines", "minier"],
+      accroche: "Dans une grande organisation, l'enjeu est d'abord de choisir les bons processus à automatiser.",
+      solution: "intégration IA sur mesure : audit des processus, agents IA, gouvernance, conformité, formation des équipes" }
+  ];
+  var AUTRE = { id: "autre", nom: "Autre activité de services", court: "une entreprise", mots: [],
+    accroche: "Dans les entreprises de services, chaque demande sans réponse rapide part chez un concurrent.",
+    solution: "réponse immédiate aux demandes, prise de rendez-vous en ligne, relances automatiques" };
+
+  var PROBLEMES = [
+    { id: "demandes", libelle: "Des demandes perdues", phrase: "qui perd des demandes faute de réponse rapide",
+      mots: ["appel", "manqu", "rate ", "rater", "ratons", "répond", "repond", "décroch", "decroch", "demande", "lead", "prospect", "message", "perd"] },
+    { id: "rdv", libelle: "Des rendez-vous non honorés", phrase: "qui perd des créneaux à cause des rendez-vous non honorés",
+      mots: ["non honor", "lapin", "absen", "no-show", "no show", "annulent", "annulation", "oublient leur rendez-vous", "ne viennent pas"] },
+    { id: "devis", libelle: "Des devis sans réponse", phrase: "dont les devis restent sans réponse",
+      mots: ["devis", "relance", "proposition commerciale", "offres sans"] },
+    { id: "fidelite", libelle: "Des clients qui ne reviennent pas", phrase: "dont les clients ne reviennent pas assez",
+      mots: ["reviennent pas", "revienn", "fidél", "fidel", "avis google", "clients perdus", "réactiv", "reactiv"] }
+  ];
+  // Ordre de détection : les formulations précises avant « appel » ou « perd ».
+  var ORDRE_PROBLEMES = ["rdv", "devis", "fidelite", "demandes"];
+
+  var EQUIPES = [{ l: "Je suis seul(e)", n: 1 }, { l: "2 à 5 personnes", min: 2, max: 5 }, { l: "6 à 20 personnes", min: 6, max: 20 }, { l: "Plus de 20", min: 21 }];
+
+  /* =====================================================================
+     OUTILS
+     ===================================================================== */
+
+  function $(sel, ctx) { return (ctx || document).querySelector(sel); }
+  function el(tag, attrs, enfants) {
+    var n = document.createElement(tag);
+    if (attrs) Object.keys(attrs).forEach(function (k) {
+      if (k === "texte") n.textContent = attrs[k];
+      else if (k === "classe") n.className = attrs[k];
+      else if (k.slice(0, 2) === "on") n.addEventListener(k.slice(2), attrs[k]);
+      else n.setAttribute(k, attrs[k]);
+    });
+    (enfants || []).forEach(function (e) { if (e) n.appendChild(typeof e === "string" ? document.createTextNode(e) : e); });
+    return n;
+  }
+  function normaliser(s) { return (s || "").toLowerCase().replace(/’/g, "'"); }
+  function contient(t, mots) { for (var i = 0; i < mots.length; i++) if (t.indexOf(mots[i]) !== -1) return true; return false; }
+  function trouver(liste, id) { return liste.filter(function (x) { return x.id === id; })[0]; }
+  var reduit = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var mobile = window.matchMedia ? window.matchMedia("(max-width: 560px)") : { matches: false };
+  var RE_EMAIL = /[^\s@<>(),;:]+@[^\s@<>(),;:]+\.[a-z]{2,}/i;
+
+  function detecterMetier(texte) {
+    var t = normaliser(texte);
+    // Ordre voulu : « cabinet médical » va à la santé, « auto-école » au garage, pas à l'école.
+    var ordre = ["sante", "juridique", "immobilier", "artisan", "garage", "coach", "ecole", "grands"];
+    for (var i = 0; i < ordre.length; i++) {
+      var m = trouver(METIERS, ordre[i]);
+      if (contient(t, m.mots)) return m;
+    }
+    // « Cabinet » seul ne suffit pas (avocat, médecin, conseil...) : Sam demandera le secteur.
+    return null;
+  }
+
+  function detecterProbleme(texte) {
+    var t = normaliser(texte) + " ";
+    for (var i = 0; i < ORDRE_PROBLEMES.length; i++) {
+      var p = trouver(PROBLEMES, ORDRE_PROBLEMES[i]);
+      if (contient(t, p.mots)) return p;
+    }
+    return null;
+  }
+
+  var NOMBRES = { un: 1, une: 1, deux: 2, trois: 3, quatre: 4, cinq: 5, six: 6, sept: 7, huit: 8, neuf: 9, dix: 10, onze: 11, douze: 12, treize: 13, quatorze: 14, quinze: 15, seize: 16, vingt: 20, dizaine: 10, vingtaine: 20, trentaine: 30, trente: 30, quarantaine: 40, quarante: 40, cinquantaine: 50, cinquante: 50, centaine: 100, cent: 100 };
+  var EN_LETTRES = ["", "une", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix", "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf", "vingt"];
+
+  function lireNombre(texte) {
+    var t = normaliser(texte);
+    if (/\b(seul|seule|solo|juste moi|moi seul)/.test(t)) return 1;
+    var m = t.match(/\d+/);
+    if (m) return parseInt(m[0], 10);
+    var mots = t.split(/[^a-zàâçéèêëîïôûùüÿœ]+/);
+    for (var i = 0; i < mots.length; i++) if (NOMBRES[mots[i]]) return NOMBRES[mots[i]];
+    return null;
+  }
+
+  // « Cabinet d'avocats à Oslo. On rate... » → « Oslo »
+  function extraireVille(texte) {
+    var premiere = (texte || "").split(/[.!?\n]/)[0];
+    // Pas de \b ici : en JavaScript, « à » n'est pas une lettre pour \b.
+    var m = premiere.match(/(?:^|\s)(?:à|a|au|aux|sur)\s+([A-Za-zÀ-ÿ][A-Za-zÀ-ÿ'\-]+(?:[\s-][A-ZÀ-Ý][A-Za-zÀ-ÿ'\-]+)*)/);
+    if (!m) return "";
+    var ville = m[1];
+    if (/^(distance|domicile|temps|plein|la|le|les|l|mon|ma|mes|notre|nos|votre|vos|partir|peu|cause|chaque)$/i.test(ville)) return "";
+    return ville.charAt(0).toUpperCase() + ville.slice(1);
+  }
+
+  // « Cabinet d'avocats » → « un cabinet » ; sinon le nom court du métier.
+  var PREMIERS_MOTS = { cabinet: "un cabinet", agence: "une agence", clinique: "une clinique", polyclinique: "une polyclinique", "école": "une école", ecole: "une école", garage: "un garage", "auto-école": "une auto-école", entreprise: "une entreprise", "société": "une société", societe: "une société", institut: "un institut", centre: "un centre", complexe: "un complexe scolaire", salon: "un salon", boutique: "une boutique", restaurant: "un restaurant", pharmacie: "une pharmacie", laboratoire: "un laboratoire", "hôtel": "un hôtel", hotel: "un hôtel", "université": "une université", universite: "une université", "collège": "un collège", "lycée": "un lycée", banque: "une banque", office: "un office", "ministère": "un ministère", ong: "une ONG", mairie: "une mairie" };
+  function designation() {
+    var mot = normaliser(etat.activite).trim().split(/[\s,.']+/)[0];
+    return PREMIERS_MOTS[mot] || etat.metier.court;
+  }
+
+  function phraseEquipe() {
+    var n = etat.equipeN;
+    if (n === 1) return "où vous travaillez seul(e)";
+    if (n && n <= 20) return "de " + EN_LETTRES[n] + " personnes";
+    if (n) return "de " + n + " personnes";
+    var e = etat.equipe;
+    if (!e) return "";
+    if (e.max) return "de " + e.min + " à " + e.max + " personnes";
+    return "de plus de 20 personnes";
+  }
+
+  function tailleEquipe() {
+    var n = etat.equipeN;
+    if (n) return n + (n === 1 ? " personne" : " personnes");
+    if (etat.equipeTexte) return etat.equipeTexte;
+    return etat.equipe ? etat.equipe.l : "non précisée";
+  }
+
+  /* =====================================================================
+     SAM : conversation scriptée (réponses libres ou boutons)
+     ===================================================================== */
+
+  var samBloc = $("#sam"), fil = $("#fil"), zone = $("#zone"), composer = $("#composer"), saisie = $("#saisie");
+  var etat = {};
+
+  // Deux passes : la seconde rattrape les hauteurs connues après mise en page (polices, boutons).
+  function defiler() {
+    fil.scrollTop = fil.scrollHeight;
+    requestAnimationFrame(function () { fil.scrollTop = fil.scrollHeight; });
+    setTimeout(function () { fil.scrollTop = fil.scrollHeight; }, 120);
+  }
+
+  function bulle(lignes) {
+    var txt = el("div", { classe: "bulle-txt" });
+    (Array.isArray(lignes) ? lignes : [lignes]).forEach(function (l) {
+      if (typeof l === "string") txt.appendChild(el("p", { texte: l })); else txt.appendChild(l);
+    });
+    return el("div", { classe: "bulle" }, [el("div", { classe: "avatar", "aria-hidden": "true", texte: "S" }), txt]);
+  }
+
+  function samDit(lignes, suite) {
+    zone.innerHTML = "";
+    var frappe = el("div", { classe: "bulle frappe", "aria-hidden": "true" }, [
+      el("div", { classe: "avatar", texte: "S" }), el("div", { classe: "bulle-txt" }, [el("p", null, [el("i"), el("i"), el("i")])])
+    ]);
+    fil.appendChild(frappe); defiler();
+    setTimeout(function () {
+      frappe.remove();
+      fil.appendChild(bulle(lignes));
+      defiler();
+      if (suite) suite();
+    }, reduit ? 0 : 650);
+  }
+
+  function moiDit(texte) {
+    etat.messages.push(texte);
+    fil.appendChild(el("div", { classe: "bulle moi" }, [el("p", { texte: texte })]));
+    defiler();
+  }
+
+  // Réponses rapides : un clic vaut une réponse écrite.
+  function puces(options, rappel, uneColonne) {
+    var g = el("div", { classe: "choix" + (uneColonne ? " une-colonne" : ""), role: "group" });
+    options.forEach(function (o) {
+      var libelle = typeof o === "string" ? o : o.l || o.libelle || o.nom;
+      g.appendChild(el("button", { type: "button", texte: libelle, onclick: function () {
+        zone.innerHTML = "";
+        moiDit(libelle);
+        etat.attente = null;
+        rappel(o);
+      } }));
+    });
+    zone.appendChild(g);
+  }
+
+  // Ce que Sam attend de la prochaine réponse écrite.
+  function attendre(fn, indice) {
+    etat.attente = fn;
+    saisie.placeholder = indice || "Écrire un message…";
+  }
+
+  function montrerComposer(oui) { composer.hidden = !oui; }
+
+  composer.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var t = saisie.value.trim();
+    if (!t) return;
+    saisie.value = "";
+    zone.innerHTML = "";
+    moiDit(t);
+    var fn = etat.attente;
+    etat.attente = null;
+    if (fn) fn(t);
+    else if (IA.actif) envoyerIA(t);
+    else samDit("Je vous lis. Pour avancer, utilisez les choix ci-dessus ou écrivez « recommencer ».", function () { attendre(reponseParDefaut); });
+  });
+
+  function reponseParDefaut(t) {
+    if (/recommenc/i.test(t)) { demarrer({ chat: true }); return; }
+    if (IA.actif) { envoyerIA(t); return; }
+    samDit("Pour avancer, utilisez les choix proposés, ou écrivez « recommencer ».", function () { attendre(reponseParDefaut); });
+  }
+
+  function nouvelEtat(metier, garderConversation) {
+    etat = { metier: metier || null, messages: [], attente: null, remplace: etat.remplace || null, nom: etat.nom || "", email: etat.email || "",
+      convId: garderConversation && etat.convId ? etat.convId : nouvelIdConversation(), canal: garderConversation ? etat.canal : "guide" };
+  }
+
+  // Début de conversation. Widget : formulaire de la maquette. Chat plein écran : une phrase libre.
+  function demarrer(opts) {
+    opts = opts || {};
+    nouvelEtat(opts.metier);
+    fil.innerHTML = ""; zone.innerHTML = "";
+    if (opts.chat) {
+      fil.appendChild(bulle(opts.metier
+        ? "Bonjour, ici Sam de SALW CONSULTING. Vous êtes dans le secteur « " + opts.metier.nom + " ». Dites-moi votre activité et votre ville en une phrase, et ce qui vous fait perdre le plus de temps."
+        : "Bonjour, ici Sam de SALW CONSULTING. Dites-moi votre activité en une phrase et je vous indique en deux minutes si nous pouvons vous aider."));
+      montrerComposer(true);
+      attendre(repondreA(recevoirActivite), "Ex. Cabinet d'avocats à Oslo, on rate des appels");
+      etat.engage = true;
+      return;
+    }
+    fil.appendChild(bulle(opts.metier
+      ? "Bonjour, je suis Sam, conseiller de SALW CONSULTING. Vous êtes dans le secteur « " + opts.metier.nom + " ». Quel problème vous fait perdre le plus de temps ou d'argent en ce moment ?"
+      : "Bonjour, je suis Sam, conseiller de SALW CONSULTING. Quel problème vous fait perdre le plus de temps ou d'argent en ce moment ?"));
+    montrerComposer(false);
+    formulaireDepart();
+    // Une phrase libre vaut aussi réponse à cette première étape.
+    attendre(repondreA(function (t) { etat.engage = true; montrerComposer(true); analyserActivite(t); }));
+  }
+
+  function formulaireDepart() {
+    var g = el("div", { classe: "choix", role: "group", "aria-label": "Votre problème principal" });
+    PROBLEMES.forEach(function (p) {
+      g.appendChild(el("button", { type: "button", "aria-pressed": "false", texte: p.libelle, onclick: function () {
+        g.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", "false"); });
+        this.setAttribute("aria-pressed", "true");
+        etat.probleme = p; err.textContent = "";
+      } }));
+    });
+    var champ = el("input", { id: "activite", type: "text", autocomplete: "organization", placeholder: "Ex. cabinet d'avocats à Oslo", maxlength: "160" });
+    var err = el("p", { classe: "erreur", role: "alert" });
+    var btn = el("button", { type: "button", classe: "btn btn-prune", texte: "Continuer avec Sam", onclick: function () {
+      var activite = champ.value.trim();
+      if (activite.length < 3) { err.textContent = "Indiquez votre activité et votre ville."; champ.focus(); return; }
+      etat.engage = true;
+      if (mobile.matches) ouvrirPleinEcran();
+      zone.innerHTML = "";
+      moiDit((etat.probleme ? etat.probleme.libelle + " · " : "") + activite);
+      montrerComposer(true);
+      if (IA.actif) envoyerIA((etat.probleme ? "Problème principal : " + etat.probleme.libelle + ". " : "") + "Activité et ville : " + activite);
+      else analyserActivite(activite);
+    } });
+    champ.addEventListener("keydown", function (e) { if (e.key === "Enter") btn.click(); });
+    zone.appendChild(g);
+    zone.appendChild(el("div", { classe: "champ" }, [el("label", { "for": "activite", texte: "Votre activité et votre ville" }), champ]));
+    zone.appendChild(err);
+    zone.appendChild(btn);
+  }
+
+  function recevoirActivite(t) {
+    if (t.length < 3) { samDit("Dites-m'en un peu plus : votre métier et votre ville, par exemple « clinique dentaire à Kinshasa ».", function () { attendre(recevoirActivite); }); return; }
+    analyserActivite(t);
+  }
+
+  function analyserActivite(t) {
+    etat.activite = t;
+    etat.ville = extraireVille(t);
+    if (!etat.metier) etat.metier = detecterMetier(t);
+    if (!etat.probleme) etat.probleme = detecterProbleme(t);
+    // Une taille d'équipe déjà donnée (« nous sommes 4 ») évite une question.
+    var n = /\b(nous sommes|on est|équipe de|equipe de)\b/i.test(t) ? lireNombre(t.replace(/^[^]*?(nous sommes|on est|équipe de|equipe de)/i, "")) : null;
+    if (n) etat.equipeN = n;
+    suite();
+  }
+
+  // Pose la prochaine question utile, et elle seulement.
+  function suite() {
+    if (!etat.metier) return demanderSecteur();
+    if (!etat.probleme) return demanderProbleme();
+    if (!etat.equipe && !etat.equipeN) return demanderEquipe();
+    return resumer();
+  }
+
+  function demanderSecteur() {
+    samDit("Merci. Pour bien vous répondre : de quel secteur êtes-vous le plus proche ?", function () {
+      puces(METIERS.concat([AUTRE]), function (m) { etat.metier = m; suite(); }, true);
+      attendre(function (t) { etat.metier = detecterMetier(t) || AUTRE; suite(); }, "Votre secteur…");
+    });
+  }
+
+  function demanderProbleme() {
+    samDit(etat.metier.accroche + " Et chez vous, qu'est-ce qui coûte le plus ?", function () {
+      puces(PROBLEMES, function (p) { etat.probleme = p; etat.accrocheDite = true; suite(); });
+      attendre(function (t) { etat.probleme = detecterProbleme(t) || PROBLEMES[0]; etat.accrocheDite = true; suite(); }, "Ce qui vous coûte le plus…");
+    });
+  }
+
+  function demanderEquipe() {
+    var question = "Combien de personnes travaillent avec vous, vous compris ?";
+    samDit(etat.accrocheDite ? question : etat.metier.accroche + " " + question, function () {
+      puces(EQUIPES, function (e) { etat.equipe = e; if (e.n) etat.equipeN = e.n; suite(); });
+      attendre(recevoirEquipe, "Un chiffre suffit, par exemple 3");
+    });
+  }
+
+  function recevoirEquipe(t) {
+    var n = lireNombre(t);
+    if (!n) {
+      samDit("Un chiffre suffit, par exemple « 3 » ou « une dizaine ».", function () {
+        puces(EQUIPES, function (e) { etat.equipe = e; if (e.n) etat.equipeN = e.n; suite(); });
+        attendre(recevoirEquipe, "Un chiffre suffit, par exemple 3");
+      });
+      return;
+    }
+    etat.equipeN = n;
+    suite();
+  }
+
+  function resumer() {
+    etat.resume = designation() + " " + phraseEquipe() + (etat.ville ? " à " + etat.ville : "") + ", " + etat.probleme.phrase;
+    samDit("Si je résume : " + etat.resume + ". Est-ce exact ?", function () {
+      puces(["Oui, exactement", "Pas tout à fait"], function (o) { if (o.indexOf("Oui") === 0) proposerCreneaux(); else corriger(); });
+      attendre(function (t) {
+        if (/^\s*(oui|exact|c'est (ça|ca|bien)|tout à fait|yes|ok|d'accord|parfait|voilà|voila)/i.test(t)) proposerCreneaux();
+        else if (/^\s*(non|pas|faux|no)\b/i.test(t)) corriger();
+        else {
+          // Correction libre (« non, nous sommes 5 à Lubumbashi ») : on met à jour ce qui est reconnu.
+          var m = detecterMetier(t), p = detecterProbleme(t), v = extraireVille(t), n = lireNombre(t);
+          if (m) etat.metier = m;
+          if (p) etat.probleme = p;
+          if (v) etat.ville = v;
+          if (n) { etat.equipeN = n; etat.equipe = null; }
+          if (!m && !p && !v && !n) { corriger(); return; }
+          resumer();
+        }
+      }, "Oui, ou corrigez-moi");
+    });
+  }
+
+  function corriger() {
+    var memo = etat.remplace, nom = etat.nom, email = etat.email;
+    samDit("D'accord. Décrivez-moi votre activité en une phrase, avec votre ville et ce qui vous coûte le plus, je reprends.", function () {
+      nouvelEtat(null, true); etat.remplace = memo; etat.nom = nom; etat.email = email; etat.engage = true;
+      attendre(recevoirActivite, "Ex. Clinique dentaire à Kinshasa, des patients qui ne viennent pas");
+    });
+  }
+
+  function proposerCreneaux(message) {
+    zone.innerHTML = "";
+    chargerCreneaux().then(function (creneaux) {
+      if (!creneaux.length) {
+        samDit("Tous les créneaux des trois prochaines semaines sont pris. Laissez-moi vos disponibilités, Albert vous répond sous 24 h ouvrées.", function () { zone.appendChild(formulaireCreneau()); });
+        return;
+      }
+      var liste = listeCreneauxChat(creneaux.slice(0, 2), creneaux);
+      samDit([message || (etat.remplace ? "Choisissons un nouveau créneau. L'ancien sera libéré automatiquement." : "Albert, notre directeur général, propose un diagnostic gratuit de 30 minutes en visio. Je vous propose deux créneaux :"), liste], function () {
+        proposerAttente(creneaux);
+      });
+    }).catch(function () {
+      samDit("La réservation en ligne est momentanément indisponible. Laissez-moi vos disponibilités, Albert vous confirme un créneau par e-mail.", function () { zone.appendChild(formulaireCreneau()); });
+    });
+  }
+
+  function proposerAttente(creneaux) {
+    attendre(function (t) {
+      if (/autre|plus tard|pas dispo|aucun|non/i.test(t)) autresJours(creneaux);
+      else samDit("Choisissez l'un des créneaux ci-dessus, ou écrivez « autre » pour voir d'autres jours.", function () { proposerAttente(creneaux); });
+    }, "Un créneau, ou « autre »");
+  }
+
+  function autresJours(creneaux) {
+    var parJour = grouperParJour(creneaux);
+    samDit("Quel jour vous arrange ?", function () {
+      puces(parJour.ordre.slice(0, 10).map(function (k) { return { l: fmtJourLong.format(new Date(parJour.jours[k][0].debut)), k: k }; }), function (o) {
+        var liste = el("div", { classe: "grille-heures" });
+        parJour.jours[o.k].forEach(function (c) {
+          liste.appendChild(el("button", { type: "button", classe: "creneau", onclick: function () { choisirDansChat(c); } }, [fmtHeure.format(new Date(c.debut))]));
+        });
+        samDit(["À quelle heure ?", liste], function () { proposerAttente(creneaux); });
+      });
+      proposerAttente(creneaux);
+    });
+  }
+
+  function choisirDansChat(c) {
+    zone.innerHTML = "";
+    moiDit(libelleCreneau(c));
+    etat.creneau = c;
+    if (etat.nom && etat.email) { confirmerDansChat(); return; }
+    samDit("Parfait : " + fmtLong.format(new Date(c.debut)) + ". À quel nom et à quelle adresse e-mail dois-je envoyer l'invitation ?", formulaireCoordonnees);
+  }
+
+  function formulaireCoordonnees() {
+    var nom = el("input", { id: "sam-nom", type: "text", autocomplete: "name", maxlength: "120", value: etat.nom || "" });
+    var mail = el("input", { id: "sam-mail", type: "email", autocomplete: "email", maxlength: "180", value: etat.email || "" });
+    var tel = options.telephone ? el("input", { id: "sam-tel", type: "tel", autocomplete: "tel", maxlength: "20", placeholder: "+47 ou +243…" }) : null;
+    var err = el("p", { classe: "erreur", role: "alert" });
+    var btn = el("button", { type: "button", classe: "btn btn-prune", texte: "Confirmer le rendez-vous", onclick: function () {
+      var n = nom.value.trim(), e = mail.value.trim();
+      if (n.length < 2) { err.textContent = "Indiquez votre nom."; nom.focus(); return; }
+      if (!RE_EMAIL.test(e)) { err.textContent = "Cette adresse e-mail semble incomplète."; mail.focus(); return; }
+      etat.nom = n; etat.email = e; etat.telephone = tel ? tel.value.trim() : "";
+      zone.innerHTML = "";
+      moiDit(n + " · " + e);
+      confirmerDansChat();
+    } });
+    zone.appendChild(el("div", { classe: "champ-duo" }, [
+      el("div", { classe: "champ" }, [el("label", { "for": "sam-nom", texte: "Votre nom" }), nom]),
+      el("div", { classe: "champ" }, [el("label", { "for": "sam-mail", texte: "Votre e-mail" }), mail])
+    ]));
+    if (tel) zone.appendChild(el("div", { classe: "champ" }, [el("label", { "for": "sam-tel", texte: "Mobile pour les rappels SMS / WhatsApp (facultatif)" }), tel]));
+    zone.appendChild(err);
+    zone.appendChild(btn);
+    // Réponse écrite possible : « Jean Dupont, jean@exemple.com »
+    attendre(function (t) {
+      var m = t.match(RE_EMAIL);
+      var n = t.replace(RE_EMAIL, "").replace(/[,;:·\-]+/g, " ").replace(/\s+/g, " ").trim();
+      if (m && n.length >= 2) { etat.nom = n; etat.email = m[0]; confirmerDansChat(); }
+      else samDit("Il me faut votre nom et votre e-mail, par exemple « Jean Mukendi, jean@exemple.com ».", formulaireCoordonnees);
+    }, "Nom et e-mail");
+  }
+
+  function confirmerDansChat() {
+    samDit("Je réserve votre créneau…", function () {
+      reserverCreneau(etat.creneau, { nom: etat.nom, email: etat.email, telephone: etat.telephone || "", activite: etat.activite || "" }).then(function (res) {
+        if (res.conflit) { proposerCreneaux("Ce créneau vient d'être pris. Voici les suivants :"); return; }
+        var confirme = "C'est réservé pour " + fmtLong.format(new Date(reservation.debut)) + ". Vous recevez la confirmation par e-mail avec un court questionnaire de préparation.";
+        // L'IA garde en mémoire que le rendez-vous est pris.
+        if (etat.histo) etat.histo.push({ role: "assistant", content: confirme });
+        samDit(confirme, function () {
+          zone.appendChild(el("button", { type: "button", classe: "btn btn-prune", texte: "Voir la confirmation", onclick: afficherConfirmation }));
+          attendre(repondreA(reponseParDefaut));
+        });
+      }).catch(function (x) {
+        samDit((x && x.message ? x.message + " " : "") + "La réservation n'a pas abouti. Vous pouvez réessayer ou laisser vos disponibilités.", function () {
+          puces(["Réessayer"], function () { confirmerDansChat(); });
+          zone.appendChild(formulaireCreneau());
+        });
+      });
+    });
+  }
+
+  function synthese() {
+    var s = [
+      // Fiche remplie par l'IA : on joint toute la conversation ; sinon, les messages du visiteur.
+      "Fiche de qualification Sam" + (etat.fiche ? " (agent IA)" : ""),
+      "",
+      "Activité, ville : " + (etat.activite || ""),
+      "Secteur         : " + (etat.metier ? etat.metier.nom : ""),
+      "Problème        : " + (etat.probleme ? etat.probleme.libelle : ""),
+      "Équipe          : " + tailleEquipe(),
+      "Résumé validé   : " + (etat.resume || ""),
+      "Pistes          : " + (etat.metier ? etat.metier.solution : ""),
+      "Offre suggérée  : " + ((etat.metier && etat.metier.id === "grands") || (etat.equipeN || (etat.equipe && etat.equipe.min) || 0) > 20 ? "B, intégration IA sur mesure" : "A, plateforme SALW par métier"),
+      "",
+      etat.fiche ? "Conversation :" : "Messages du visiteur :"
+    ];
+    if (etat.fiche) etat.histo.forEach(function (m) { s.push("  " + (m.role === "user" ? "Visiteur" : "Sam") + " : " + m.content); });
+    else etat.messages.forEach(function (m) { s.push("  « " + m + " »"); });
+    return s.join("\n");
+  }
+
+  /* =====================================================================
+     CONVERSATION : enregistrée au fil de l'échange pour l'espace admin
+     (prospects), conservée 30 jours sans rendez-vous.
+     ===================================================================== */
+
+  function nouvelIdConversation() {
+    var a = new Uint8Array(16);
+    (window.crypto || window.msCrypto).getRandomValues(a);
+    return Array.prototype.map.call(a, function (b) { return ("0" + b.toString(16)).slice(-2); }).join("");
+  }
+
+  // Le fil affiché est la source : ce qui est enregistré est exactement ce que le visiteur a vu.
+  function messagesDuFil() {
+    return Array.prototype.map.call(fil.querySelectorAll(".bulle:not(.frappe)"), function (b) {
+      var c = b.cloneNode(true);
+      c.querySelectorAll("button, .creneaux-chat, .grille-heures, .avatar").forEach(function (x) { x.remove(); });
+      var morceaux = Array.prototype.map.call(c.querySelectorAll("p, li"), function (n) { return n.textContent.trim(); }).filter(Boolean);
+      return { role: b.classList.contains("moi") ? "visiteur" : "sam", texte: (morceaux.length ? morceaux.join("\n") : c.textContent).trim() };
+    }).filter(function (m) { return m.texte; });
+  }
+
+  function corpsConversation() {
+    var messages = messagesDuFil();
+    if (!etat.convId || !messages.some(function (m) { return m.role === "visiteur"; })) return null;
+    return JSON.stringify({
+      id: etat.convId,
+      canal: etat.canal || "guide",
+      messages: messages,
+      qualif: {
+        secteur: etat.metier ? etat.metier.id : "",
+        probleme: etat.probleme ? etat.probleme.id : "",
+        activite: etat.activite || "",
+        ville: etat.ville || "",
+        equipe: (etat.equipeN || etat.equipe || etat.equipeTexte) ? tailleEquipe() : "",
+        resume: etat.resume || ""
+      },
+      fuseau: FUSEAU
+    });
+  }
+
+  var sauvegardePrevue = null;
+  function sauverConversation(maintenant) {
+    clearTimeout(sauvegardePrevue);
+    var envoyer = function () {
+      var corps = corpsConversation();
+      if (!corps) return Promise.resolve();
+      return fetch(CONVERSATION_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: corps, keepalive: true }).catch(function () {});
+    };
+    if (maintenant) return envoyer();
+    sauvegardePrevue = setTimeout(envoyer, 1500);
+    return Promise.resolve();
+  }
+  new MutationObserver(function () { sauverConversation(false); }).observe(fil, { childList: true });
+  // Départ de la page : dernier envoi, sans bloquer la navigation.
+  window.addEventListener("pagehide", function () {
+    var corps = corpsConversation();
+    if (corps && navigator.sendBeacon) navigator.sendBeacon(CONVERSATION_URL, new Blob([corps], { type: "application/json" }));
+  });
+
+  /* =====================================================================
+     PLEIN ÉCRAN SUR MOBILE (maquette « conversation »)
+     ===================================================================== */
+
+  function ouvrirPleinEcran() {
+    ouvrirOnglet("sam");
+    samBloc.classList.add("plein-ecran");
+    document.body.classList.add("chat-ouvert");
+    if (typeof majBulle === "function") majBulle();
+    if (!etat.engage) demarrer({ chat: true, metier: etat.metier });
+    setTimeout(function () { defiler(); if (!composer.hidden) saisie.focus(); }, 50);
+  }
+  function fermerPleinEcran() {
+    samBloc.classList.remove("plein-ecran", "flottant");
+    document.body.classList.remove("chat-ouvert");
+    if (place && place.parentNode) place.parentNode.removeChild(place);
+    majBulle();
+  }
+  $("#chat-retour").addEventListener("click", fermerPleinEcran);
+
+  /* =====================================================================
+     AGENT IA : chat (ia.php, Claude) et appel vocal (Vapi)
+     Tout échec repasse Sam en mode guidé, sans perdre la conversation.
+     ===================================================================== */
+
+  var IA = { actif: false, vocal: null };
+
+  fetch(IA_URL + "?etat", { headers: { "Accept": "application/json" }, cache: "no-store" })
+    .then(function (r) { return r.json(); })
+    .then(function (j) {
+      IA.actif = !!(j && j.ok && j.ia);
+      IA.vocal = j && j.ok && j.vocal && j.vocal.cle && j.vocal.assistant ? j.vocal : null;
+      document.querySelectorAll("[data-appel]").forEach(function (b) { b.hidden = !IA.vocal; });
+    })
+    .catch(function () { /* pas de PHP ou hors ligne : mode guidé */ });
+
+  // Réponse écrite du visiteur : à l'IA si elle est active, sinon au parcours guidé.
+  function repondreA(fnGuide) {
+    return function (t) { if (IA.actif) envoyerIA(t); else fnGuide(t); };
+  }
+
+  function indicateurFrappe() {
+    var f = el("div", { classe: "bulle frappe", "aria-hidden": "true" }, [
+      el("div", { classe: "avatar", texte: "S" }), el("div", { classe: "bulle-txt" }, [el("p", null, [el("i"), el("i"), el("i")])])
+    ]);
+    fil.appendChild(f); defiler();
+    return f;
+  }
+
+  function envoyerIA(t) {
+    etat.histo = etat.histo || [];
+    etat.histo.push({ role: "user", content: t });
+    etat.engage = true;
+    montrerComposer(true);
+    zone.innerHTML = "";
+    var frappe = indicateurFrappe();
+    fetch(IA_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({ messages: etat.histo, fuseau: FUSEAU })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (j) {
+        frappe.remove();
+        if (!j || !j.ok) throw new Error((j && j.error) || "ia");
+        etat.canal = "chat-ia";
+        if (j.fiche) appliquerFiche(j.fiche);
+        var action = (j.actions || []).filter(function (a) { return a.type === "creneaux"; })[0];
+        var lignes = j.texte ? j.texte.split(/\n{2,}/) : [];
+        if (j.texte) etat.histo.push({ role: "assistant", content: j.texte });
+        if (action && action.creneaux && action.creneaux.length) lignes.push(listeCreneauxChat(action.creneaux, null));
+        if (lignes.length) { fil.appendChild(bulle(lignes)); defiler(); }
+        attendre(envoyerIA, action ? "Un créneau, ou une question" : "Écrire un message…");
+      })
+      .catch(function () {
+        frappe.remove();
+        basculerModeGuide();
+      });
+  }
+
+  // L'IA ne répond pas (clé, quota, réseau) : Sam reprend en mode guidé avec ce qui est déjà dit.
+  function basculerModeGuide() {
+    IA.actif = false;
+    var dits = (etat.histo || []).filter(function (m) { return m.role === "user"; }).map(function (m) { return m.content; }).join(". ");
+    samDit("Petit souci technique de mon côté : je continue en mode guidé.", function () {
+      if (etat.metier && etat.probleme && (etat.equipe || etat.equipeN)) { resumer(); return; }
+      if (dits) analyserActivite(dits); else attendre(recevoirActivite);
+    });
+  }
+
+  // Fiche remplie par l'IA → même état que le parcours guidé (synthèse, réservation, résumé).
+  function appliquerFiche(f) {
+    etat.fiche = f;
+    etat.metier = trouver(METIERS, f.secteur) || AUTRE;
+    etat.probleme = trouver(PROBLEMES, f.probleme) || { id: "autre", libelle: "Autre", phrase: "" };
+    etat.activite = f.activite || etat.activite;
+    etat.ville = f.ville || etat.ville;
+    etat.equipeTexte = f.equipe;
+    etat.equipeN = lireNombre(f.equipe) || etat.equipeN;
+    etat.resume = f.resume || etat.resume;
+  }
+
+  // Boutons de créneaux dans une bulle de Sam (IA ou mode guidé).
+  function listeCreneauxChat(creneaux, tous) {
+    var liste = el("div", { classe: "creneaux creneaux-chat" });
+    creneaux.slice(0, 3).forEach(function (c) {
+      liste.appendChild(el("button", { type: "button", classe: "creneau", onclick: function () { choisirDansChat(c); } }, [libelleCreneau(c), el("span", { texte: "30 min" })]));
+    });
+    liste.appendChild(el("button", { type: "button", classe: "lien-txt", texte: "D'autres créneaux", onclick: function () {
+      moiDit("D'autres créneaux");
+      (tous ? Promise.resolve(tous) : chargerCreneaux()).then(autresJours).catch(function () { zone.appendChild(formulaireCreneau()); });
+    } }));
+    return liste;
+  }
+
+  /* --- Appel vocal ---------------------------------------------------------------- */
+
+  var VAPI_SDK = "https://cdn.jsdelivr.net/npm/@vapi-ai/web@2.7.1/+esm";
+  var appel = { vapi: null, enCours: false, id: null, debut: 0, minuteur: null };
+  var panneauAppel = $("#appel"), statutAppel = $("#appel-statut"), dureeAppel = $("#appel-duree"), ondeAppel = $("#appel-onde"), microAppel = $("#appel-micro");
+
+  function etatAppel(texte) { statutAppel.textContent = texte; }
+
+  function demarrerAppel() {
+    if (!IA.vocal || appel.enCours) return;
+    ouvrirOnglet("sam");
+    etat.engage = true;
+    if (mobile.matches) ouvrirPleinEcran();
+    appel.enCours = true; appel.id = null;
+    etat.canal = "appel";
+    panneauAppel.hidden = false;
+    microAppel.setAttribute("aria-pressed", "false");
+    etatAppel("Connexion… autorisez le micro");
+    dureeAppel.textContent = "00:00";
+    montrerComposer(true);
+    import(VAPI_SDK).then(function (mod) {
+      var Vapi = mod.default || mod.Vapi;
+      if (!appel.vapi) { appel.vapi = new Vapi(IA.vocal.cle); brancherAppel(appel.vapi); }
+      return appel.vapi.start(IA.vocal.assistant, { variableValues: { fuseau: FUSEAU || "Europe/Oslo" } });
+    }).then(function (c) {
+      if (c && c.id) appel.id = c.id;
+      else if (appel.enCours) finAppel(true);
+    }).catch(function () { finAppel(true); });
+  }
+
+  function brancherAppel(v) {
+    v.on("call-start", function () {
+      appel.debut = Date.now();
+      etatAppel("Sam vous écoute");
+      clearInterval(appel.minuteur);
+      appel.minuteur = setInterval(function () {
+        var s = Math.floor((Date.now() - appel.debut) / 1000);
+        dureeAppel.textContent = String(Math.floor(s / 60)).padStart(2, "0") + ":" + String(s % 60).padStart(2, "0");
+      }, 1000);
+    });
+    v.on("speech-start", function () { etatAppel("Sam parle…"); });
+    v.on("speech-end", function () { etatAppel("Sam vous écoute"); });
+    v.on("volume-level", function (niveau) { ondeAppel.style.transform = "scale(" + (1 + Math.min(1, niveau || 0) * 0.6) + ")"; });
+    // La conversation parlée s'écrit dans le fil, comme un chat.
+    v.on("message", function (m) {
+      if (!m || m.type !== "transcript" || m.transcriptType !== "final" || !m.transcript) return;
+      if (m.role === "user") moiDit(m.transcript);
+      else { fil.appendChild(bulle(m.transcript)); defiler(); }
+      etat.histo = etat.histo || [];
+      etat.histo.push({ role: m.role === "user" ? "user" : "assistant", content: m.transcript });
+    });
+    v.on("call-end", function () { finAppel(false); });
+    v.on("error", function () { if (appel.enCours) finAppel(true); });
+  }
+
+  function finAppel(echec) {
+    if (!appel.enCours) return;
+    appel.enCours = false;
+    clearInterval(appel.minuteur);
+    panneauAppel.hidden = true;
+    try { if (echec && appel.vapi) appel.vapi.stop(); } catch (e) { /* déjà arrêté */ }
+    if (echec) {
+      samDit("L'appel n'a pas pu aboutir : micro refusé ou connexion instable. Vous pouvez continuer par écrit ici.", function () { attendre(repondreA(recevoirActivite)); });
+      return;
+    }
+    // Sam a-t-il réservé pendant l'appel ? Si oui : écran « Diagnostic confirmé ».
+    var id = appel.id;
+    (id ? fetch("appel.php?id=" + encodeURIComponent(id) + "&conversation=" + encodeURIComponent(etat.convId || ""), { headers: { "Accept": "application/json" }, cache: "no-store" }).then(function (r) { return r.json(); }) : Promise.resolve({}))
+      .then(function (j) {
+        if (j && j.reservation) {
+          reservation = j.reservation;
+          chargement = null;
+          rendreAgendas();
+          afficherConfirmation();
+          samDit("Appel terminé : votre diagnostic est réservé. La confirmation vous attend par e-mail.", function () { attendre(repondreA(reponseParDefaut)); });
+        } else {
+          samDit("Appel terminé. Je reste disponible ici, par écrit, si vous le souhaitez.", function () { attendre(repondreA(recevoirActivite)); });
+        }
+      })
+      .catch(function () { samDit("Appel terminé.", function () { attendre(repondreA(recevoirActivite)); }); });
+  }
+
+  microAppel.addEventListener("click", function () {
+    if (!appel.vapi) return;
+    var coupe = !appel.vapi.isMuted();
+    appel.vapi.setMuted(coupe);
+    microAppel.setAttribute("aria-pressed", coupe ? "true" : "false");
+    microAppel.setAttribute("aria-label", coupe ? "Réactiver le micro" : "Couper le micro");
+    etatAppel(coupe ? "Micro coupé" : "Sam vous écoute");
+  });
+  $("#appel-fin").addEventListener("click", function () { if (appel.vapi) appel.vapi.stop(); else finAppel(false); });
+  document.querySelectorAll("[data-appel]").forEach(function (b) { b.addEventListener("click", function (e) { e.preventDefault(); demarrerAppel(); }); });
+
+  /* --- Bulle flottante : le même Sam, depuis toute la page -------------------------- */
+
+  var bulleFlottante = $("#bulle-flottante"), place = null;
+
+  function ouvrirFlottant() {
+    if (mobile.matches) { ouvrirPleinEcran(); return; }
+    if (!place) {
+      place = el("div", { classe: "sam-place" }, [
+        el("p", { texte: "La conversation avec Sam est ouverte en bas à droite." }),
+        el("button", { type: "button", classe: "btn btn-blanc", texte: "La ramener ici", onclick: fermerPleinEcran })
+      ]);
+    }
+    place.style.minHeight = samBloc.offsetHeight + "px";
+    samBloc.parentNode.insertBefore(place, samBloc);
+    samBloc.classList.add("plein-ecran", "flottant");
+    ouvrirOnglet("sam");
+    if (!etat.engage) demarrer({ chat: true });
+    majBulle();
+    setTimeout(function () { defiler(); if (!composer.hidden) saisie.focus(); }, 50);
+  }
+  $("#bulle-ouvrir").addEventListener("click", ouvrirFlottant);
+
+  // La bulle n'apparaît que lorsque le widget de la page n'est plus à l'écran.
+  var widgetVisible = true;
+  function majBulle() {
+    var ouvert = samBloc.classList.contains("plein-ecran");
+    bulleFlottante.hidden = widgetVisible || ouvert;
+  }
+  // Calcul direct au défilement : visible si au moins 15 % du widget est à l'écran.
+  var calculPrevu = false;
+  function mesurerWidget() {
+    calculPrevu = false;
+    if (samBloc.classList.contains("plein-ecran")) return;
+    var r = samBloc.getBoundingClientRect();
+    var visible = Math.min(r.bottom, window.innerHeight) - Math.max(r.top, 0);
+    widgetVisible = visible > r.height * 0.15;
+    majBulle();
+  }
+  function planifierMesure() { if (!calculPrevu) { calculPrevu = true; requestAnimationFrame(mesurerWidget); } }
+  window.addEventListener("scroll", function () { planifierMesure(); setTimeout(mesurerWidget, 150); }, { passive: true });
+  window.addEventListener("resize", planifierMesure);
+  mesurerWidget();
+
+
+  /* =====================================================================
+     RÉSERVATION : créneaux réels (creneaux.php / reserver.php).
+     Repli 1 : lien Cal.com ou Calendly si AGENDA_URL est renseigné.
+     Repli 2 : formulaire « proposez vos disponibilités » si le serveur ne répond pas.
+     ===================================================================== */
+
+  var FUSEAU = "";
+  try { FUSEAU = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) { FUSEAU = ""; }
+  var fmtJour = new Intl.DateTimeFormat("fr-FR", { weekday: "short", day: "numeric", month: "short" });
+  var fmtJourLong = new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long" });
+  var fmtHeure = new Intl.DateTimeFormat("fr-FR", { hour: "2-digit", minute: "2-digit" });
+  var fmtLong = new Intl.DateTimeFormat("fr-FR", { weekday: "long", day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" });
+  var fmtCle = new Intl.DateTimeFormat("en-CA", { year: "numeric", month: "2-digit", day: "2-digit" });
+  function joliFuseau() { return FUSEAU ? FUSEAU.split("/").pop().replace(/_/g, " ") : ""; }
+
+  var options = { telephone: false }; // renvoyé par creneaux.php : rappels SMS / WhatsApp actifs ?
+  var reservation = null;   // réponse du serveur une fois le diagnostic réservé
+  var chargement = null;    // promesse partagée par la conversation et les blocs de réservation
+  var erreurAgenda = "";
+  var compteur = 0;
+
+  function chargerCreneaux(forcer) {
+    if (!chargement || forcer) {
+      chargement = fetch(CRENEAUX, { headers: { "Accept": "application/json" }, cache: "no-store" })
+        .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+        .then(function (j) {
+          if (!j.ok || !Array.isArray(j.creneaux)) throw new Error("Réponse invalide");
+          options.telephone = !!j.telephone;
+          return j.creneaux;
+        });
+      chargement.catch(function () { chargement = null; });
+    }
+    return chargement;
+  }
+
+  function libelleCreneau(c) {
+    var d = new Date(c.debut);
+    return fmtJour.format(d) + " · " + fmtHeure.format(d);
+  }
+
+  function grouperParJour(creneaux) {
+    var jours = {}, ordre = [];
+    creneaux.forEach(function (c) {
+      var k = fmtCle.format(new Date(c.debut));
+      if (!jours[k]) { jours[k] = []; ordre.push(k); }
+      jours[k].push(c);
+    });
+    return { jours: jours, ordre: ordre };
+  }
+
+  // Réservation commune à la conversation et aux blocs « Prochains créneaux ».
+  function reserverCreneau(c, coord) {
+    var fd = new FormData();
+    fd.append("debut", c.debut); fd.append("name", coord.nom); fd.append("email", coord.email);
+    fd.append("telephone", coord.telephone || ""); fd.append("activite", coord.activite || "");
+    fd.append("fuseau", FUSEAU); fd.append("bot-field", "");
+    if ((etat.metier && etat.probleme) || (etat.histo && etat.histo.length)) fd.append("contexte", synthese());
+    if (etat.remplace) { fd.append("remplace_id", etat.remplace.id); fd.append("remplace_jeton", etat.remplace.jeton); }
+    if (etat.convId) fd.append("conversation_id", etat.convId);
+    if (etat.metier) fd.append("secteur", etat.metier.id);
+    if (etat.probleme) fd.append("probleme", etat.probleme.id);
+    // La conversation part d'abord, pour que l'espace admin la rattache au rendez-vous.
+    return sauverConversation(true).then(function () { return fetch(RESERVER, { method: "POST", body: fd, headers: { "Accept": "application/json" } })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { statut: r.status, j: j }; }); })
+      .then(function (res) {
+        if (res.statut === 200 && res.j.ok) {
+          etat.nom = etat.nom || coord.nom; etat.email = etat.email || coord.email;
+          etat.remplace = null;
+          reservation = res.j;
+          chargement = null;
+          rendreAgendas();
+          afficherConfirmation();
+          return { ok: true };
+        }
+        if (res.statut === 409 && Array.isArray(res.j.creneaux)) {
+          chargement = Promise.resolve(res.j.creneaux);
+          return { conflit: true, message: res.j.error };
+        }
+        throw new Error(res.j.error || "");
+      });
+    });
+  }
+
+  function urlAgenda() {
+    var u;
+    try { u = new URL(AGENDA_URL); } catch (e) { return null; }
+    var calendly = /calendly\.com$/.test(u.hostname);
+    if (etat.nom) u.searchParams.set("name", etat.nom);
+    if (etat.email) u.searchParams.set("email", etat.email);
+    if (etat.metier && etat.probleme) {
+      var note = etat.metier.nom + " · " + etat.probleme.libelle + (etat.activite ? " · " + etat.activite : "");
+      u.searchParams.set(calendly ? "a1" : "notes", note);
+    }
+    if (calendly) { u.searchParams.set("embed_domain", location.hostname || "localhost"); u.searchParams.set("embed_type", "Inline"); u.searchParams.set("hide_gdpr_banner", "1"); }
+    else { u.searchParams.set("embed", "true"); }
+    return u.toString();
+  }
+
+  function rendreAgendas() {
+    document.querySelectorAll("[data-agenda]").forEach(function (conteneur) {
+      conteneur.innerHTML = "";
+      if (reservation) { conteneur.appendChild(vueReservee()); return; }
+      var url = AGENDA_URL ? urlAgenda() : null;
+      if (url) {
+        conteneur.appendChild(el("div", { classe: "agenda-cadre" }, [
+          el("iframe", { src: url, title: "Réserver un diagnostic de 30 minutes", loading: "lazy" })
+        ]));
+        conteneur.appendChild(el("p", { classe: "sam-pied" }, ["Le calendrier ne s'affiche pas ? ", el("a", { href: AGENDA_URL, target: "_blank", rel: "noopener", texte: "Ouvrir la page de réservation" })]));
+        return;
+      }
+      conteneur.appendChild(el("p", { classe: "agenda-titre", texte: "Prochains créneaux" }));
+      if (etat.remplace) conteneur.appendChild(el("p", { classe: "agenda-attente", texte: "Choisissez votre nouveau créneau. Celui du " + fmtLong.format(new Date(etat.remplace.debut)) + " sera libéré automatiquement." }));
+      var attente = el("p", { classe: "fuseau", role: "status", texte: "Chargement des créneaux…" });
+      conteneur.appendChild(attente);
+      chargerCreneaux().then(function (creneaux) {
+        attente.remove();
+        if (!creneaux.length) {
+          conteneur.appendChild(el("p", { classe: "agenda-attente" }, [el("strong", { texte: "Tous les créneaux des trois prochaines semaines sont pris." }), "Proposez vos disponibilités, Albert vous répond sous 24 h ouvrées."]));
+          conteneur.appendChild(formulaireCreneau());
+          return;
+        }
+        conteneur.appendChild(selecteurCreneaux(creneaux));
+      }).catch(function () {
+        attente.remove();
+        conteneur.appendChild(formulaireCreneau());
+      });
+    });
+  }
+
+  function selecteurCreneaux(creneaux) {
+    var id = "r" + (++compteur);
+    var bloc = el("div", { classe: "reservation" });
+    var choisi = null;
+
+    function boutonCreneau(c, court) {
+      return el("button", { type: "button", classe: "creneau", "aria-pressed": choisi && choisi.debut === c.debut ? "true" : "false", "data-debut": c.debut, onclick: function () {
+        choisi = c;
+        bloc.querySelectorAll(".creneau").forEach(function (x) { x.setAttribute("aria-pressed", x.getAttribute("data-debut") === c.debut ? "true" : "false"); });
+        err.textContent = "";
+        champs.hidden = false;
+        resume.textContent = "Créneau choisi : " + fmtLong.format(new Date(c.debut));
+      } }, court ? [fmtHeure.format(new Date(c.debut))] : [libelleCreneau(c), el("span", { texte: "30 min" })]);
+    }
+
+    // Les deux prochains créneaux, comme sur la maquette.
+    var liste = el("div", { classe: "creneaux" });
+    creneaux.slice(0, 2).forEach(function (c) { liste.appendChild(boutonCreneau(c)); });
+    bloc.appendChild(liste);
+
+    // Les autres, jour par jour.
+    if (creneaux.length > 2) {
+      var pj = grouperParJour(creneaux);
+      var autres = el("div", { classe: "autres", hidden: "" });
+      var jours = el("div", { classe: "jours", role: "group", "aria-label": "Choisir un jour" });
+      var heures = el("div", { classe: "grille-heures" });
+      var montrerJour = function (k) {
+        jours.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-jour") === k ? "true" : "false"); });
+        heures.innerHTML = "";
+        pj.jours[k].forEach(function (c) { heures.appendChild(boutonCreneau(c, true)); });
+      };
+      pj.ordre.forEach(function (k) {
+        jours.appendChild(el("button", { type: "button", "aria-pressed": "false", "data-jour": k, texte: fmtJour.format(new Date(pj.jours[k][0].debut)), onclick: function () { montrerJour(k); } }));
+      });
+      autres.appendChild(jours); autres.appendChild(heures);
+      var voir = el("button", { type: "button", classe: "lien-txt", "aria-expanded": "false", texte: "Voir d'autres créneaux", onclick: function () {
+        var ouvrir = autres.hidden;
+        autres.hidden = !ouvrir;
+        voir.setAttribute("aria-expanded", ouvrir ? "true" : "false");
+        voir.textContent = ouvrir ? "Masquer les autres créneaux" : "Voir d'autres créneaux";
+        if (ouvrir && !heures.childNodes.length) montrerJour(pj.ordre[0]);
+      } });
+      bloc.appendChild(voir);
+      bloc.appendChild(autres);
+    }
+
+    if (FUSEAU) bloc.appendChild(el("p", { classe: "fuseau", texte: "Heures affichées pour votre fuseau : " + FUSEAU.replace(/_/g, " ") + "." }));
+
+    // Coordonnées : pré-remplies si le visiteur est passé par Sam.
+    var nom = el("input", { id: id + "n", type: "text", autocomplete: "name", maxlength: "120", value: etat.nom || "" });
+    var mail = el("input", { id: id + "e", type: "email", autocomplete: "email", maxlength: "180", value: etat.email || "" });
+    var activite = el("input", { id: id + "a", type: "text", autocomplete: "organization", maxlength: "160", value: etat.activite || "", placeholder: "Ex. clinique dentaire à Kinshasa" });
+    var tel = options.telephone ? el("input", { id: id + "t", type: "tel", autocomplete: "tel", maxlength: "20", placeholder: "+47 ou +243…" }) : null;
+    var resume = el("p", { classe: "resume-creneau", "aria-live": "polite" });
+    var champs = el("div", { hidden: "" }, [
+      resume,
+      el("div", { classe: "champ-duo" }, [
+        el("div", { classe: "champ" }, [el("label", { "for": id + "n", texte: "Nom" }), nom]),
+        el("div", { classe: "champ" }, [el("label", { "for": id + "e", texte: "E-mail" }), mail])
+      ]),
+      el("div", { classe: "champ" }, [el("label", { "for": id + "a", texte: "Activité et ville (facultatif)" }), activite]),
+      tel ? el("div", { classe: "champ" }, [el("label", { "for": id + "t", texte: "Mobile pour les rappels SMS / WhatsApp (facultatif)" }), tel]) : null
+    ]);
+    bloc.appendChild(champs);
+
+    var err = el("p", { classe: "erreur", role: "alert", texte: erreurAgenda });
+    var btn = el("button", { type: "button", classe: "btn btn-nuit btn-reserver", texte: "Réserver mon diagnostic", onclick: function () {
+      err.textContent = "";
+      if (!choisi) { err.textContent = "Choisissez d'abord un créneau."; return; }
+      var n = nom.value.trim(), e = mail.value.trim();
+      if (n.length < 2) { err.textContent = "Indiquez votre nom."; nom.focus(); return; }
+      if (!RE_EMAIL.test(e)) { err.textContent = "Cette adresse e-mail semble incomplète."; mail.focus(); return; }
+      btn.disabled = true; btn.textContent = "Réservation…";
+      reserverCreneau(choisi, { nom: n, email: e, telephone: tel ? tel.value.trim() : "", activite: activite.value.trim() }).then(function (res) {
+        if (res.conflit) { erreurAgenda = res.message || "Ce créneau vient d'être pris. Choisissez-en un autre."; rendreAgendas(); erreurAgenda = ""; }
+      }).catch(function (x) {
+        btn.disabled = false; btn.textContent = "Réserver mon diagnostic";
+        var lien = "mailto:" + EMAIL_CONTACT + "?subject=" + encodeURIComponent("Demande de diagnostic 30 min")
+          + "&body=" + encodeURIComponent("Créneau souhaité : " + fmtLong.format(new Date(choisi.debut)) + "\n\n" + n + " · " + e);
+        err.textContent = (x && x.message ? x.message + " " : "La réservation n'a pas abouti. ");
+        err.appendChild(el("a", { href: lien, texte: "Envoyer la demande par e-mail" }));
+      });
+    } });
+    bloc.appendChild(err);
+    bloc.appendChild(btn);
+    return bloc;
+  }
+
+  // Bloc compact affiché dans les zones de réservation une fois le rendez-vous pris.
+  function vueReservee() {
+    return el("div", { classe: "confirme" }, [
+      el("div", { classe: "coche", "aria-hidden": "true", texte: "✓" }),
+      el("strong", { texte: "Diagnostic confirmé" }),
+      el("p", { texte: fmtLong.format(new Date(reservation.debut)) + (FUSEAU ? " (heure de " + joliFuseau() + ")" : "") }),
+      el("div", { classe: "confirme-actions" }, [
+        el("button", { type: "button", classe: "btn btn-prune", texte: "Voir la confirmation", onclick: afficherConfirmation })
+      ])
+    ]);
+  }
+
+  /* =====================================================================
+     ÉCRAN DE CONFIRMATION (maquette « Diagnostic confirmé »)
+     ===================================================================== */
+
+  var ecran = null, focusAvant = null;
+
+  function afficherConfirmation() {
+    if (!reservation) return;
+    fermerConfirmation();
+    var r = reservation, debut = new Date(r.debut);
+    var ics = URL.createObjectURL(new Blob([r.ics], { type: "text/calendar;charset=utf-8" }));
+    var avatar = photoChargee
+      ? el("img", { src: PHOTO_AVATAR, alt: "", classe: "conf-avatar" })
+      : el("span", { classe: "conf-avatar mono-mini", "aria-hidden": "true", texte: "AW" });
+
+    var frise = el("ol", { classe: "frise" }, [
+      el("li", { classe: "fait" }, [el("b", { texte: "Maintenant" }), " · questionnaire de préparation par e-mail (3 min)"])
+    ]);
+    (r.rappels || []).forEach(function (x) {
+      frise.appendChild(el("li", null, [el("b", { texte: x.quand }), " · rappel par " + x.canaux.join(" et ") + (x.quand === "H-2" ? " avec le lien visio" : "")]));
+    });
+
+    var fermer = el("button", { type: "button", classe: "conf-fermer", "aria-label": "Fermer", onclick: fermerConfirmation }, [
+      svg('<path d="M5 5l10 10M15 5L5 15"/>')
+    ]);
+    ecran = el("div", { classe: "confirmation", role: "dialog", "aria-modal": "true", "aria-labelledby": "conf-titre", onclick: function (e) { if (e.target === ecran) fermerConfirmation(); } }, [
+      el("div", { classe: "conf-carte" }, [
+        fermer,
+        el("div", { classe: "conf-tete" }, [
+          el("div", { classe: "conf-coche", "aria-hidden": "true" }, [svg('<path d="M5 10.5l3.2 3.2L15 7"/>', 3)]),
+          el("h2", { classe: "titre", id: "conf-titre", texte: "Diagnostic confirmé" }),
+          el("p", { texte: "Albert vous retrouve en visio pour chiffrer le problème et vous montrer la solution sur votre cas." })
+        ]),
+        el("div", { classe: "conf-corps" }, [
+          el("dl", { classe: "conf-fiche" }, [
+            el("div", null, [el("dt", { texte: "Date" }), el("dd", { texte: fmtJourLong.format(debut) })]),
+            el("div", null, [el("dt", { texte: "Heure" }), el("dd", { texte: fmtHeure.format(debut) + " · 30 min" })]),
+            el("div", null, [el("dt", { texte: "Avec" }), el("dd", { classe: "conf-avec" }, [avatar, el("span", { texte: "Albert, directeur général" })])]),
+            el("div", null, [el("dt", { texte: "Lien visio" }), el("dd", null, [el("a", { href: r.visio, target: "_blank", rel: "noopener", texte: "Rejoindre" })])])
+          ]),
+          FUSEAU ? el("p", { classe: "fuseau", texte: "Heure de " + joliFuseau() + ". Les rappels vous donneront le lien au bon moment." }) : null,
+          r.mail ? null : el("p", { classe: "erreur", texte: "L'e-mail de confirmation n'a pas pu partir : notez le lien de la visio. Albert est prévenu et vous écrira." }),
+          el("h3", { classe: "titre", texte: "Et ensuite" }),
+          frise,
+          el("a", { classe: "btn btn-prune conf-large", href: ics, download: "diagnostic-salw.ics", texte: "Ajouter à mon agenda" }),
+          el("button", { type: "button", classe: "btn conf-large conf-changer", texte: "Changer de créneau", onclick: changerCreneau })
+        ])
+      ])
+    ]);
+    focusAvant = document.activeElement;
+    document.body.appendChild(ecran);
+    document.body.classList.add("chat-ouvert");
+    fermer.focus();
+  }
+
+  function fermerConfirmation() {
+    if (!ecran) return;
+    ecran.remove(); ecran = null;
+    if (!samBloc.classList.contains("plein-ecran") || samBloc.classList.contains("flottant")) document.body.classList.remove("chat-ouvert");
+    if (focusAvant && focusAvant.focus && document.contains(focusAvant)) focusAvant.focus();
+  }
+
+  function changerCreneau() {
+    var r = reservation;
+    etat.remplace = { id: r.id, jeton: r.jeton, debut: r.debut };
+    reservation = null;
+    fermerConfirmation();
+    rendreAgendas();
+    if (etat.engage && fil.childNodes.length) {
+      ouvrirOnglet("sam");
+      proposerCreneaux();
+    } else {
+      ouvrirOnglet("diag");
+      samBloc.scrollIntoView({ behavior: reduit ? "auto" : "smooth", block: "center" });
+    }
+  }
+
+  function svg(chemins, epaisseur) {
+    var s = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    s.setAttribute("viewBox", "0 0 20 20"); s.setAttribute("fill", "none"); s.setAttribute("stroke", "currentColor");
+    s.setAttribute("stroke-width", String(epaisseur || 2)); s.setAttribute("stroke-linecap", "round"); s.setAttribute("stroke-linejoin", "round");
+    s.setAttribute("aria-hidden", "true");
+    s.innerHTML = chemins;
+    return s;
+  }
+
+  // Repli quand le serveur ne répond pas : la demande part par e-mail.
+  function formulaireCreneau() {
+    var id = "c" + (++compteur);
+    var f = el("form", { novalidate: "" });
+    var nom = el("input", { id: id + "n", name: "name", type: "text", autocomplete: "name", maxlength: "120", value: etat.nom || "" });
+    var mail = el("input", { id: id + "e", name: "email", type: "email", autocomplete: "email", maxlength: "180", value: etat.email || "" });
+    var dispo = el("textarea", { id: id + "d", name: "dispo", rows: "2", maxlength: "500", placeholder: "Ex. mardi ou jeudi matin, heure de Kinshasa" });
+    var err = el("p", { classe: "erreur", role: "alert" });
+    var btn = el("button", { type: "submit", classe: "btn btn-nuit btn-reserver", texte: "Demander mon créneau" });
+    f.appendChild(el("div", { classe: "agenda-attente" }, [el("strong", { texte: "Proposez vos disponibilités" }), "Albert vous confirme un créneau de 30 minutes par e-mail sous 24 h ouvrées."]));
+    f.appendChild(el("div", { classe: "champ-duo" }, [
+      el("div", { classe: "champ" }, [el("label", { "for": id + "n", texte: "Nom" }), nom]),
+      el("div", { classe: "champ" }, [el("label", { "for": id + "e", texte: "E-mail" }), mail])
+    ]));
+    f.appendChild(el("div", { classe: "champ" }, [el("label", { "for": id + "d", texte: "Vos disponibilités" }), dispo]));
+    f.appendChild(el("input", { type: "text", name: "bot-field", tabindex: "-1", autocomplete: "off", "aria-hidden": "true", style: "position:absolute;left:-9999px" }));
+    f.appendChild(err); f.appendChild(btn);
+    f.addEventListener("submit", function (ev) {
+      ev.preventDefault(); err.textContent = "";
+      var n = nom.value.trim(), e = mail.value.trim(), d = dispo.value.trim();
+      if (n.length < 2 || !RE_EMAIL.test(e) || d.length < 3) { err.textContent = "Nom, e-mail valide et disponibilités sont nécessaires."; return; }
+      btn.disabled = true; btn.textContent = "Envoi…";
+      var msg = "Demande de créneau pour le diagnostic de 30 minutes\n\nDisponibilités : " + d + (etat.metier && etat.probleme ? "\n\n" + synthese() : "");
+      var fd = new FormData();
+      fd.append("name", n); fd.append("email", e); fd.append("type", "Demande de diagnostic 30 min"); fd.append("message", msg); fd.append("bot-field", "");
+      fetch(ENDPOINT, { method: "POST", body: fd, headers: { "Accept": "application/json" } })
+        .then(function (r) { return r.json().then(function (j) { if (!r.ok || !j.ok) throw new Error(j.error || ""); }); })
+        .then(function () {
+          f.replaceWith(el("div", { classe: "ok", role: "status", texte: "Merci " + n.split(" ")[0] + ", votre demande est bien partie. Albert vous confirme un créneau par e-mail." }));
+        }).catch(function () {
+          btn.disabled = false; btn.textContent = "Demander mon créneau";
+          var lien = "mailto:" + EMAIL_CONTACT + "?subject=" + encodeURIComponent("Demande de diagnostic 30 min") + "&body=" + encodeURIComponent(msg + "\n\n" + n + " · " + e);
+          err.textContent = "";
+          err.appendChild(document.createTextNode("L'envoi n'a pas abouti. "));
+          err.appendChild(el("a", { href: lien, texte: "Envoyer la demande par e-mail" }));
+        });
+    });
+    return f;
+  }
+
+  /* =====================================================================
+     ONGLETS, MÉTIERS, NAVIGATION
+     ===================================================================== */
+
+  var onglets = ["sam", "diag", "offres"];
+  function ouvrirOnglet(nom, focus) {
+    onglets.forEach(function (o) {
+      var t = $("#t-" + o), p = $("#p-" + o), actif = o === nom;
+      t.setAttribute("aria-selected", actif ? "true" : "false");
+      t.tabIndex = actif ? 0 : -1;
+      p.hidden = !actif;
+      if (actif && focus) t.focus();
+    });
+  }
+  onglets.forEach(function (o, i) {
+    var t = $("#t-" + o);
+    t.addEventListener("click", function () { ouvrirOnglet(o); });
+    t.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        var j = (i + (e.key === "ArrowRight" ? 1 : onglets.length - 1)) % onglets.length;
+        ouvrirOnglet(onglets[j], true); e.preventDefault();
+      }
+    });
+  });
+
+  var cartes = $("#cartes");
+  METIERS.forEach(function (m, i) {
+    cartes.appendChild(el("button", { type: "button", "data-metier": m.id, classe: "carte" + (i === 0 || i === 7 ? " pleine" : ""), onclick: function () {
+      ouvrirOnglet("sam");
+      if (mobile.matches) { etat.engage = false; etat.metier = m; ouvrirPleinEcran(); return; }
+      demarrer({ metier: m });
+      samBloc.scrollIntoView({ behavior: reduit ? "auto" : "smooth", block: "center" });
+    } }, [
+      el("span", { classe: "num", texte: String(i + 1).padStart(2, "0") }),
+      el("h3", { texte: m.nom }),
+      el("p", { texte: m.carte }),
+      el("span", { classe: "cta", texte: "Parler à Sam de mon métier →" })
+    ]));
+  });
+
+  document.querySelectorAll("[data-ouvrir]").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      var cible = a.getAttribute("data-ouvrir");
+      fermerMenu();
+      if (cible === "sam") {
+        if (mobile.matches) { e.preventDefault(); ouvrirPleinEcran(); return; }
+        ouvrirOnglet("sam");
+      }
+    });
+  });
+
+  var burger = $("#burger"), nav = $("#nav");
+  function fermerMenu() { nav.classList.remove("ouvert"); burger.setAttribute("aria-expanded", "false"); }
+  burger.addEventListener("click", function () {
+    var ouvert = nav.classList.toggle("ouvert");
+    burger.setAttribute("aria-expanded", ouvert ? "true" : "false");
+  });
+  nav.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", fermerMenu); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape") return;
+    if (ecran) fermerConfirmation();
+    else if (appel.enCours) { /* on ne raccroche pas sur Échap */ }
+    else if (samBloc.classList.contains("plein-ecran")) fermerPleinEcran();
+    else fermerMenu();
+  });
+
+  var entete = $("#entete");
+  window.addEventListener("scroll", function () { entete.classList.toggle("defile", window.scrollY > 10); }, { passive: true });
+
+  // Bandeau « Référence » : n'apparaît qu'avec un fait réel.
+  if (REFERENCE) { $("#reference-texte").textContent = REFERENCE; $("#reference").hidden = false; }
+
+  // Photo d'Albert : le monogramme reste affiché tant que le fichier n'existe pas.
+  var photoChargee = false;
+  var img = new Image();
+  img.onload = function () {
+    photoChargee = true;
+    img.alt = "Albert Wutshu Shongo, directeur général de SALW CONSULTING";
+    var cadre = $("#portrait .portrait-img");
+    cadre.insertBefore(img, $("#portrait .mono"));
+    $("#portrait .mono").remove();
+  };
+  img.src = PHOTO;
+
+  $("#annee").textContent = new Date().getFullYear();
+
+  demarrer();
+  rendreAgendas();
+})();
+</script>
+<script>
+/* Tarifs de l'offre A : mêmes paramètres que prive/tarifs.php de la plateforme (à modifier ensemble). */
+(function () {
+  "use strict";
+  var TARIFS = {
+    formules: [
+      { nom: "Essentiel", pros: 2, sms: 500, prix: 149, miseEnPlace: 490 },
+      { nom: "Équipe", pros: 6, sms: 1500, prix: 289, miseEnPlace: 790 },
+      { nom: "Structure", pros: 15, sms: 4000, prix: 489, miseEnPlace: 1490 }
+    ],
+    // coef : ajustement selon la valeur d'un rendez-vous ; valeur : rendez-vous moyen retenu pour le calcul de rentabilité.
+    metiers: [
+      { id: "juridique", nom: "Cabinet juridique ou comptable", coef: 1.4, valeur: 180 },
+      { id: "sante", nom: "Santé", coef: 1.0, valeur: 30 },
+      { id: "immobilier", nom: "Immobilier", coef: 1.4, valeur: 400 },
+      { id: "artisan", nom: "Artisan", coef: 1.1, valeur: 220 },
+      { id: "coach", nom: "Coach, consultant", coef: 1.0, valeur: 120 },
+      { id: "ecole", nom: "École privée", coef: 1.3, valeur: 350 },
+      { id: "garage", nom: "Garage, auto-école", coef: 1.2, valeur: 250 }
+    ],
+    sms: "0,09", majoration: 20
+  };
+  var boutons = document.getElementById("tarifs-metiers"), grille = document.getElementById("tarifs-grille"), note = document.getElementById("tarifs-note");
+  if (!boutons) return;
+  function prix(base, coef) { return Math.ceil(Math.round(base * coef * 100) / 100 / 10) * 10 - 1; }
+  function nombre(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f"); }
+  function afficher(id) {
+    var m = TARIFS.metiers.filter(function (x) { return x.id === id; })[0] || TARIFS.metiers[0];
+    [].forEach.call(boutons.children, function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-id") === m.id ? "true" : "false"); });
+    grille.innerHTML = TARIFS.formules.map(function (f, i) {
+      var p = prix(f.prix, m.coef), rdv = Math.max(1, Math.ceil(p / m.valeur));
+      return '<article class="formule' + (i === 1 ? ' phare' : '') + '"><h3>' + f.nom + '</h3><p class="pour">' + (i === 0 ? "1 à " : (TARIFS.formules[i - 1].pros + 1) + " à ") + f.pros + " personnes qui reçoivent</p>" +
+        '<p class="apartir">À partir de</p><div class="prix">' + nombre(p) + ' €<small>HT / mois</small></div><ul>' +
+        "<li>Jusqu'à " + f.pros + " agendas</li><li>" + nombre(f.sms) + " SMS inclus par mois</li><li>Toutes les automatisations et l'assistant 24/7</li><li>Rapport mensuel de ce que la plateforme vous rapporte</li><li>Mise en place à partir de " + nombre(f.miseEnPlace) + " €</li></ul>" +
+        '<p class="rentable">Remboursé dès ' + rdv + " rendez-vous récupéré" + (rdv > 1 ? "s" : "") + " par mois<span>créneau repris, appel rattrapé ou devis signé</span></p></article>";
+    }).join("");
+    note.textContent = "Calcul de rentabilité sur la base d'un rendez-vous moyen de " + nombre(m.valeur) + " € dans ce métier : le vôtre peut être différent. Prix hors taxes, avec engagement de 12 mois (sans engagement : +" + TARIFS.majoration + " %). SMS au-delà du forfait : " + TARIFS.sms + " € l'unité. Plus de 15 personnes ou plusieurs sites : sur mesure. Le prix exact est fixé après le diagnostic gratuit.";
+  }
+  boutons.innerHTML = TARIFS.metiers.map(function (m) { return '<button type="button" data-id="' + m.id + '" aria-pressed="false">' + m.nom + "</button>"; }).join("");
+  boutons.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) afficher(b.getAttribute("data-id")); });
+  afficher("juridique");
+  // Si le visiteur a choisi son métier plus haut sur la page, les tarifs s'y placent.
+  document.addEventListener("click", function (e) {
+    var c = e.target.closest && e.target.closest("[data-metier]");
+    if (c && TARIFS.metiers.some(function (x) { return x.id === c.getAttribute("data-metier"); })) afficher(c.getAttribute("data-metier"));
+  });
+})();
+</script>
+</body>
+</html>

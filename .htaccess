@@ -1,0 +1,104 @@
+# =============================================================================
+# SALW CONSULTING, conseiller Sam — configuration Apache / LiteSpeed (hébergement Hostinger)
+# =============================================================================
+# Équivalent Hostinger du netlify.toml : HTTPS forcé, en-têtes de sécurité,
+# cache et protection des fichiers de travail.
+#
+# À placer à la racine de public_html, à côté d'index.html.
+# ATTENTION : ce fichier commence par un point, certains explorateurs de
+# fichiers le masquent. Dans le gestionnaire de fichiers Hostinger, activer
+# l'affichage des fichiers cachés pour le voir.
+# =============================================================================
+
+# --- Forcer HTTPS -------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# --- Pas de listage de répertoire ---------------------------------------------
+Options -Indexes
+
+# --- Page d'accueil par défaut -------------------------------------------------
+DirectoryIndex index.html
+
+# --- En-têtes de sécurité ------------------------------------------------------
+<IfModule mod_headers.c>
+  # Force HTTPS pendant un an. Ne pas ajouter "preload" tant que le domaine
+  # n'est pas définitivement en HTTPS : c'est difficile à annuler.
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+
+  # Interdit l'affichage du site dans une iframe tierce (clickjacking).
+  Header always set X-Frame-Options "DENY"
+
+  # Empêche le navigateur de deviner un type de fichier différent du déclaré.
+  Header always set X-Content-Type-Options "nosniff"
+
+  # Ne transmet l'URL complète qu'aux pages du même site.
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+  # Coupe les API navigateur dont le site n'a aucun usage.
+  Header always set Permissions-Policy "geolocation=(), camera=(), microphone=(self), payment=(), usb=(), interest-cohort=()"
+
+  # Politique de sécurité du contenu.
+  # frame-src : seuls les agendas Cal.com et Calendly peuvent s'afficher dans la page.
+  # Appel vocal : SDK Vapi servi par jsDelivr, audio WebRTC via Daily (*.daily.co), API *.vapi.ai.
+  # microphone=(self) dans Permissions-Policy : sans lui, le navigateur refuse le micro.
+  # 'unsafe-inline' est nécessaire : le CSS, le JavaScript et le JSON-LD sont
+  # volontairement en ligne dans index.html pour garder un fichier autonome.
+  # Toute ressource externe ajoutée plus tard (police, script d'analyse, widget)
+  # sera BLOQUÉE tant que son domaine n'est pas ajouté à la directive concernée.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.daily.co; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://cdn.jsdelivr.net https://*.vapi.ai wss://*.vapi.ai https://*.daily.co wss://*.daily.co; media-src 'self' blob:; worker-src 'self' blob:; frame-src https://cal.com https://app.cal.com https://calendly.com https://*.daily.co; form-action 'self'; frame-ancestors 'none'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests"
+
+  # Le HTML doit toujours être revalidé, sinon une correction publiée met des
+  # heures à apparaître chez les visiteurs déjà venus.
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+
+  # Le serveur ne doit pas annoncer sa version de PHP.
+  Header always unset X-Powered-By
+</IfModule>
+
+# --- Cache des ressources statiques --------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/png     "access plus 1 year"
+  ExpiresByType image/jpeg    "access plus 1 year"
+  ExpiresByType image/webp    "access plus 1 year"
+  ExpiresByType font/woff2    "access plus 1 year"
+  ExpiresByType text/css      "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+</IfModule>
+
+# --- Compression ----------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain application/javascript application/json image/svg+xml
+</IfModule>
+
+# --- Protection des fichiers de travail -----------------------------------------
+# Filet de sécurité : ces fichiers ne devraient tout simplement PAS être
+# téléversés (README interne, notes, config Netlify). S'ils le sont par erreur,
+# ils restent inaccessibles depuis le web.
+<FilesMatch "\.(md|toml|log|bak|orig|sample|example)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# --- Interdire l'accès aux fichiers cachés (.env, .git, etc.) --------------------
+<FilesMatch "^\.">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
