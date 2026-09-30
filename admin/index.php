@@ -41,6 +41,16 @@ if ($page === 'deconnexion') {
     aller('connexion');
 }
 
+// Mot de passe oublié : accessible sans être connecté.
+if ($page === 'oubli') {
+    page_oubli();
+    exit;
+}
+if ($page === 'nouveau-mdp') {
+    page_nouveau_mdp();
+    exit;
+}
+
 $u = moi();
 if ($u === null || $page === 'connexion') {
     if ($u !== null) {

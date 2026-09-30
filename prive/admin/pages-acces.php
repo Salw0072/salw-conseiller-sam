@@ -76,7 +76,123 @@ function page_connexion(): void
             . '<label>Adresse e-mail<input name="identifiant" type="email" required autofocus autocomplete="username"></label>'
             . '<label>Mot de passe<input name="mdp" type="password" required autocomplete="current-password"></label>'
             . '<button class="btn plein">Se connecter</button></form>'
-            . '<p class="petit">Mot de passe oublié ? Un administrateur peut le réinitialiser depuis la page Équipe.</p>';
+            . '<p class="petit"><a href="' . h(url_admin('oubli')) . '">Mot de passe oublié ?</a></p>';
+    }
+    echo '</div>';
+    pied();
+}
+
+// --- Mot de passe oublié ------------------------------------------------------------------
+// Lien envoyé à l'adresse du compte, valable 1 heure et utilisable une seule fois. Seule son
+// empreinte (SHA-256) est conservée. La réponse est la même, que l'adresse existe ou non.
+
+const REINIT_DUREE = 3600;
+
+/** Adresse de l'espace admin, pour les liens envoyés par e-mail. */
+function url_espace_admin(): string
+{
+    $site = rtrim((string)cfg('url_site'), '/');
+    return $site !== '' ? $site . '/admin' : url_base();
+}
+
+function page_oubli(): void
+{
+    $envoye = false;
+    $erreur = '';
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // Une demande par minute et par adresse IP.
+        $verrou = sys_get_temp_dir() . '/salw_oubli_' . hash('sha256', (string)($_SERVER['REMOTE_ADDR'] ?? '')) . '.lock';
+        if (is_file($verrou) && time() - (int)filemtime($verrou) < 60) {
+            $erreur = 'Une demande vient déjà d\'être faite : patientez une minute avant de recommencer.';
+        } else {
+            @touch($verrou);
+            $identifiant = mb_strtolower(trim((string)($_POST['identifiant'] ?? '')));
+            foreach (utilisateurs() as $u) {
+                if ($u['identifiant'] !== $identifiant || empty($u['actif'])) {
+                    continue;
+                }
+                $jeton = bin2hex(random_bytes(32));
+                modifier_utilisateur($u['id'], function (array &$x) use ($jeton) {
+                    $x['reinit_empreinte'] = hash('sha256', $jeton);
+                    $x['reinit_expire'] = time() + REINIT_DUREE;
+                });
+                $lien = url_espace_admin() . '/?p=nouveau-mdp&t=' . $jeton;
+                $ok = envoyer_mail($u['identifiant'], 'Réinitialisation de votre mot de passe · Espace SALW',
+                    "Bonjour " . ($u['nom'] ?: '') . ",\n\nPour choisir un nouveau mot de passe pour l'espace admin SALW, ouvrez ce lien :\n\n" . $lien
+                    . "\n\nIl est valable 1 heure et ne sert qu'une fois.\n\nSi vous n'avez rien demandé, ignorez ce message : votre mot de passe actuel reste valable.\n\nSALW CONSULTING");
+                journaliser($ok ? 'mdp_oubli_envoye' : 'mdp_oubli_echec_envoi', $u['identifiant'], '', $u['id']);
+            }
+            $envoye = true;
+        }
+    }
+    entete('Mot de passe oublié', '');
+    echo '<div class="carte-seule"><div class="marque">SALW <span>ESPACE</span></div><h1>Mot de passe oublié</h1>';
+    if ($envoye) {
+        echo '<div class="msg ok" role="status">Si un compte correspond à cette adresse, un e-mail avec un lien de réinitialisation vient de partir. Il est valable 1 heure. Pensez à regarder dans les indésirables.</div>';
+    } else {
+        echo ($erreur !== '' ? '<div class="msg erreur" role="alert">' . h($erreur) . '</div>' : '')
+            . '<p>Saisissez l\'adresse e-mail de votre compte : vous recevrez un lien pour choisir un nouveau mot de passe.</p>'
+            . '<form method="post" class="form" action="' . h(url_admin('oubli')) . '">' . champ_csrf()
+            . '<label>Adresse e-mail<input name="identifiant" type="email" required autofocus autocomplete="username"></label>'
+            . '<button class="btn plein">Recevoir le lien</button></form>';
+    }
+    echo '<p class="petit"><a href="' . h(url_admin('connexion')) . '">Retour à la connexion</a></p></div>';
+    pied();
+}
+
+/** Compte correspondant à un jeton de réinitialisation encore valable, ou null. */
+function compte_par_jeton(string $jeton): ?array
+{
+    if (!preg_match('/^[a-f0-9]{64}$/', $jeton)) {
+        return null;
+    }
+    $empreinte = hash('sha256', $jeton);
+    foreach (utilisateurs() as $u) {
+        if (!empty($u['reinit_empreinte']) && hash_equals((string)$u['reinit_empreinte'], $empreinte) && (int)($u['reinit_expire'] ?? 0) > time() && !empty($u['actif'])) {
+            return $u;
+        }
+    }
+    return null;
+}
+
+function page_nouveau_mdp(): void
+{
+    $jeton = (string)($_POST['t'] ?? $_GET['t'] ?? '');
+    $compte = compte_par_jeton($jeton);
+    $erreur = '';
+    if ($compte && $_SERVER['REQUEST_METHOD'] === 'POST') {
+        $mdp = (string)($_POST['mdp'] ?? '');
+        if (mb_strlen($mdp) < 12) {
+            $erreur = 'Le mot de passe doit faire au moins 12 caractères.';
+        } elseif ($mdp !== (string)($_POST['mdp2'] ?? '')) {
+            $erreur = 'Les deux saisies ne correspondent pas.';
+        } else {
+            modifier_utilisateur($compte['id'], function (array &$x) use ($mdp) {
+                $x['hash'] = password_hash($mdp, PASSWORD_DEFAULT);
+                $x['reinit_empreinte'] = '';
+                $x['reinit_expire'] = 0;
+                $x['echecs'] = 0;
+                $x['bloque_jusqua'] = 0;
+                $x['changer_mdp'] = false;
+            });
+            journaliser('mot_de_passe_reinitialise_par_lien', $compte['identifiant'], '', $compte['id']);
+            flash('ok', 'Mot de passe enregistré : connectez-vous avec le nouveau.');
+            aller('connexion');
+        }
+    }
+    entete('Nouveau mot de passe', '');
+    echo '<div class="carte-seule"><div class="marque">SALW <span>ESPACE</span></div><h1>Nouveau mot de passe</h1>';
+    if (!$compte) {
+        echo '<div class="msg erreur" role="alert">Ce lien n\'est plus valable : il a expiré ou a déjà servi.</div>'
+            . '<p><a class="btn plein" href="' . h(url_admin('oubli')) . '">Demander un nouveau lien</a></p>';
+    } else {
+        echo ($erreur !== '' ? '<div class="msg erreur" role="alert">' . h($erreur) . '</div>' : '')
+            . '<p>Compte : <b>' . h($compte['identifiant']) . '</b></p>'
+            . '<form method="post" class="form" action="' . h(url_admin('nouveau-mdp')) . '">' . champ_csrf() . '<input type="hidden" name="t" value="' . h($jeton) . '">'
+            . '<input type="text" name="identifiant" value="' . h($compte['identifiant']) . '" autocomplete="username" hidden>'
+            . '<label>Nouveau mot de passe (12 caractères minimum)<input name="mdp" type="password" required minlength="12" autofocus autocomplete="new-password"></label>'
+            . '<label>Confirmer<input name="mdp2" type="password" required minlength="12" autocomplete="new-password"></label>'
+            . '<button class="btn plein">Enregistrer</button></form>';
     }
     echo '</div>';
     pied();

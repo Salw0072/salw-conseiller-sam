@@ -178,3 +178,9 @@ Dépôt Git propre à cette application (branche `main`), à pousser dans un dé
 - **Jamais versionné** (`.gitignore`) : `prive/config.php` (réglages et clés) et `prive/donnees/` (données). Un déploiement ne les touche donc pas.
 - **Premier envoi** : `git remote add origin https://github.com/<compte>/salw-conseiller-sam.git` puis `git push -u origin main` (connexion GitHub dans le navigateur ; jamais de jeton dans une commande).
 - **Hostinger** : hPanel → Avancé → Git, dépôt en SSH avec la clé de déploiement ajoutée dans GitHub (Settings → Deploy keys, lecture seule), webhook de déploiement automatique ajouté dans GitHub (Settings → Webhooks). Puis, une seule fois sur le serveur : copier `prive/config.exemple.php` en `prive/config.php` et le compléter, vérifier que `prive/donnees/` est accessible en écriture, programmer la tâche cron, activer le SSL, créer le compte admin aussitôt.
+
+## Mot de passe oublié
+
+Lien « Mot de passe oublié ? » sous le formulaire de connexion : on saisit l'adresse du compte et on reçoit par e-mail un lien **valable 1 heure et utilisable une seule fois** (seule son empreinte est conservée), pour choisir soi-même le nouveau mot de passe. La réponse affichée est la même que l'adresse existe ou non. Limite : une demande par minute et par adresse IP. Une réinitialisation remet aussi à zéro le blocage après échecs ; la double authentification, si elle est activée, reste demandée à la connexion.
+
+L'e-mail part par `envoyer_mail()` depuis l'adresse `expediteur` : en mode test, il est déposé dans `prive/donnees/boite-test/`.
