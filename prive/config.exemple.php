@@ -75,7 +75,7 @@ return [
     // Sans clé, ou si l'API ne répond pas, Sam repasse automatiquement en mode guidé (scripté).
     // Clé à créer sur console.anthropic.com > API Keys. Exige PHP 8.1 ou plus.
     'ia_cle'          => '',
-    'ia_modele'       => 'claude-opus-5',
+    'ia_modele'       => 'claude-opus-5-5',
     // Effort de réflexion : « low » suffit pour une conversation courte et répond plus vite.
     'ia_effort'       => 'low',
     // Garde-fous de coût : messages IA par jour (tout le site) et par visiteur et par heure.

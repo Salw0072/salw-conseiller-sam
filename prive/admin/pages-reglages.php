@@ -38,7 +38,7 @@ function schema_reglages(): array
         ]],
         'ia' => ['Agent IA : chat', "Sam répond librement grâce à Claude (Anthropic). Sans clé, ou en cas d'incident, il repasse en mode guidé.", [
             ['ia_cle', 'Clé API Anthropic', 'secret', ['aide' => 'console.anthropic.com › API Keys. Exige PHP 8.1 ou plus.']],
-            ['ia_modele', 'Modèle', 'choix', ['choix' => ['claude-opus-5' => 'Claude Opus 5 (recommandé)', 'claude-sonnet-5' => 'Claude Sonnet 5 (moins cher)', 'claude-haiku-4-5' => 'Claude Haiku 4.5 (le moins cher)']]],
+            ['ia_modele', 'Modèle', 'choix', ['choix' => ['claude-opus-5-5' => 'Claude Opus 5.5 (recommandé)', 'claude-sonnet-5' => 'Claude Sonnet 5 (moins cher)', 'claude-haiku-4-5' => 'Claude Haiku 4.5 (le moins cher)', 'claude-opus-5' => 'Claude Opus 5 (ancien modèle, plus cher)']]],
             ['ia_effort', 'Effort de réflexion', 'choix', ['choix' => ['low' => 'Faible : rapide, idéal pour une conversation courte', 'medium' => 'Moyen', 'high' => 'Élevé : plus lent et plus coûteux']]],
             ['ia_max_jour', 'Messages IA maximum par jour (tout le site)', 'nombre', ['min' => 0, 'max' => 100000]],
             ['ia_max_heure_ip', 'Messages IA maximum par visiteur et par heure', 'nombre', ['min' => 1, 'max' => 1000]],

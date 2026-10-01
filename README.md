@@ -83,7 +83,7 @@ La **frise n'annonce que ce qui partira vraiment**. Pas de « J-1 » si le rende
 ## Agent IA : chat et appel vocal
 
 **Chat (Claude).** Sam répond librement, en français, en norvégien ou en anglais, selon la langue du visiteur. Il ne pose que les questions utiles (activité et ville, problème, taille de l'équipe) et fait valider son résumé. Il enregistre ensuite la fiche pour Albert et affiche des créneaux réels. La réservation reste celle du site : l'IA ne réserve jamais seule dans le chat, et elle ne demande ni nom ni e-mail.
-- Modèle : `claude-opus-5`, effort `low` (réponses rapides et moins chères pour une conversation courte), réglables dans `config.php`.
+- Modèle : `claude-opus-5-5` (Claude Opus 5.5, plus récent et moins cher qu'Opus 5), effort `low` (réponses rapides et moins chères pour une conversation courte), réglables dans `config.php`.
 - Repli côté serveur activé : si le modèle refuse une demande, l'API bascule sur un modèle de repli adapté (`fallbacks: "default"`).
 - Mise en cache des consignes : le texte de Sam est identique d'une requête à l'autre, donc relu depuis le cache d'Anthropic.
 - Garde-fous : 400 messages IA par jour pour tout le site, 40 par visiteur et par heure, 25 messages par conversation. Au-delà, ou si l'API ne répond pas (clé, quota, réseau), Sam dit « je continue en mode guidé » et reprend là où il en était.
