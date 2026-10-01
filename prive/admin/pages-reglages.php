@@ -63,6 +63,13 @@ function schema_reglages(): array
             ['sam_connaissances', 'Connaissances et règles de Sam', 'texte_long', ['defaut' => 'sam_connaissances_defaut']],
             ['vapi_premier_message', 'Première phrase de Sam au téléphone', 'texte', []],
         ]],
+        'paiements' => ['Paiements', "Paiement en ligne des demandes (acomptes, factures des offres B, C et D) : Stripe pour la carte et le prélèvement SEPA, PayPal en option. Commencez avec les clés de test, puis passez aux clés réelles.", [
+            ['stripe_cle_secrete', 'Clé secrète Stripe', 'secret', ['aide' => 'dashboard.stripe.com › Développeurs › Clés API. sk_test_… pour les essais, puis sk_live_….']],
+            ['stripe_secret_webhook', 'Secret du webhook Stripe', 'secret', ['aide' => 'Développeurs › Webhooks › adresse https://votre-site/stripe-webhook.php, événements checkout.session.completed, checkout.session.async_payment_succeeded et checkout.session.async_payment_failed. Commence par whsec_.']],
+            ['paypal_client_id', 'Client ID PayPal', 'texte', ['aide' => 'developer.paypal.com › Apps & Credentials.']],
+            ['paypal_secret', 'Secret PayPal', 'secret', []],
+            ['paypal_mode', 'Mode PayPal', 'choix', ['choix' => ['sandbox' => 'Test (sandbox)', 'live' => 'Réel (live)']]],
+        ]],
         'objectifs' => ['Objectifs', 'Affichés sur le tableau de bord.', [
             ['objectif_ca', "Objectif de chiffre d'affaires signé via l'application (€ HT)", 'nombre', ['min' => 0, 'max' => 100000000]],
             ['objectif_debut', 'Début de la période', 'date', []],

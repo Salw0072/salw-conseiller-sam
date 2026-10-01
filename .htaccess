@@ -49,7 +49,7 @@ DirectoryIndex index.html
   # volontairement en ligne dans index.html pour garder un fichier autonome.
   # Toute ressource externe ajoutée plus tard (police, script d'analyse, widget)
   # sera BLOQUÉE tant que son domaine n'est pas ajouté à la directive concernée.
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.daily.co; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://cdn.jsdelivr.net https://*.vapi.ai wss://*.vapi.ai https://*.daily.co wss://*.daily.co; media-src 'self' blob:; worker-src 'self' blob:; frame-src https://cal.com https://app.cal.com https://calendly.com https://*.daily.co; form-action 'self'; frame-ancestors 'none'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests"
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://*.daily.co; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self' https://cdn.jsdelivr.net https://*.vapi.ai wss://*.vapi.ai https://*.daily.co wss://*.daily.co; media-src 'self' blob:; worker-src 'self' blob:; frame-src https://cal.com https://app.cal.com https://calendly.com https://*.daily.co; form-action 'self' https://checkout.stripe.com https://billing.stripe.com https://www.paypal.com https://www.sandbox.paypal.com; frame-ancestors 'none'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests"
 
   # Le HTML doit toujours être revalidé, sinon une correction publiée met des
   # heures à apparaître chez les visiteurs déjà venus.

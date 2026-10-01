@@ -120,6 +120,17 @@ return [
     // pour les comptes administrateurs.
     'admin_2fa_obligatoire' => false,
 
+    // --- Paiements (acomptes, factures des offres B, C et D) ------------------------------------
+    // Modifiables aussi dans l'espace admin (Réglages › Paiements). Vide : paiement en ligne désactivé.
+    // Stripe : dashboard.stripe.com › Développeurs › Clés API (sk_test_… pour les essais, puis sk_live_…).
+    'stripe_cle_secrete'    => '',
+    // Secret du webhook …/stripe-webhook.php (whsec_…), pour les prélèvements SEPA confirmés plus tard.
+    'stripe_secret_webhook' => '',
+    // PayPal : developer.paypal.com › Apps & Credentials.
+    'paypal_client_id' => '',
+    'paypal_secret'    => '',
+    'paypal_mode'      => 'sandbox',   // « sandbox » pour les essais, « live » ensuite
+
     // --- Mode test ---------------------------------------------------------------------
     // true : aucun e-mail n'est envoyé, ils sont écrits dans prive/donnees/boite-test/.
     'mode_test' => false,

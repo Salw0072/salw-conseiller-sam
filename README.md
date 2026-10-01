@@ -184,3 +184,11 @@ Dépôt Git propre à cette application (branche `main`), à pousser dans un dé
 Lien « Mot de passe oublié ? » sous le formulaire de connexion : on saisit l'adresse du compte et on reçoit par e-mail un lien **valable 1 heure et utilisable une seule fois** (seule son empreinte est conservée), pour choisir soi-même le nouveau mot de passe. La réponse affichée est la même que l'adresse existe ou non. Limite : une demande par minute et par adresse IP. Une réinitialisation remet aussi à zéro le blocage après échecs ; la double authentification, si elle est activée, reste demandée à la connexion.
 
 L'e-mail part par `envoyer_mail()` depuis l'adresse `expediteur` : en mode test, il est déposé dans `prive/donnees/boite-test/`.
+
+## Paiements (acomptes, factures des offres B, C et D)
+
+Espace admin › **Paiements** : on crée une demande (client, e-mail, objet, montant, offre) et le lien part par e-mail. Le client paie sur `payer.php` par **Stripe** (carte, prélèvement SEPA, facture Stripe) ou **PayPal**. Au retour, le paiement est vérifié auprès du service avant d'être affiché comme reçu ; un e-mail prévient Albert et confirme au client. Le prélèvement SEPA passe par « Prélèvement en cours » jusqu'à la confirmation de la banque, reçue par `stripe-webhook.php`. Tableau : encaissé ce mois-ci, en attente. Demandes annulables (le lien ne permet plus de payer).
+
+**Mise en service** : Réglages › **Paiements** (clé secrète Stripe, secret du webhook, Client ID et secret PayPal, mode test ou réel). Stripe › Développeurs › Webhooks : `https://<site>/stripe-webhook.php`, événements `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `checkout.session.async_payment_failed`. Commencer avec les clés de test.
+
+Le montant est payé tel quel : indiquer le TTC si la TVA s'applique au client. Testé contre un faux Stripe et un faux PayPal locaux (Stripe, PayPal, SEPA, notifications signées et falsifiées, annulation, lien inventé), PHP 8.3. Non testé contre les vrais services.
