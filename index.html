@@ -321,7 +321,15 @@ body.chat-ouvert{overflow:hidden}
 .tarifs-metiers button:hover{border-color:var(--prune)}
 .tarifs-metiers button[aria-pressed="true"]{background:var(--nuit);border-color:var(--nuit);color:#fff}
 .tarifs-metiers button:focus-visible{outline:3px solid var(--corail);outline-offset:2px}
-.tarifs-grille{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tarifs-grille{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.formule .engagement{margin:4px 0 0;font-size:12.5px;color:var(--gris)}
+.formule .prix-devis{font-size:44px}
+.formule.sur-mesure{background:var(--nuit);border-color:var(--nuit);color:#fff}
+.formule.sur-mesure h3,.formule.sur-mesure .prix{color:#fff}
+.formule.sur-mesure .pour,.formule.sur-mesure .apartir,.formule.sur-mesure .engagement,.formule.sur-mesure .rentable span{color:rgba(255,255,255,.75)}
+.formule.sur-mesure .rentable{color:#fff;border-top-color:rgba(255,255,255,.2)}
+.formule.sur-mesure li::before{background-color:rgba(255,255,255,.9)}
+@media (max-width:1180px){.tarifs-grille{grid-template-columns:1fr 1fr}}
 .formule{background:#fff;border:1.5px solid var(--prune-trait);border-radius:var(--rayon);padding:26px;display:flex;flex-direction:column;gap:6px}
 .formule.phare{border-color:var(--prune);box-shadow:var(--ombre)}
 .formule h3{font-family:var(--titre);font-weight:400;font-size:30px;margin:0;color:var(--nuit)}
@@ -2055,14 +2063,19 @@ body.chat-ouvert{overflow:hidden}
   function afficher(id) {
     var m = TARIFS.metiers.filter(function (x) { return x.id === id; })[0] || TARIFS.metiers[0];
     [].forEach.call(boutons.children, function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-id") === m.id ? "true" : "false"); });
+    // Mêmes offres que la plateforme : trois formules au volume, plus le sur mesure.
     grille.innerHTML = TARIFS.formules.map(function (f, i) {
-      var p = prix(f.prix, m.coef), rdv = Math.max(1, Math.ceil(p / m.valeur));
-      return '<article class="formule' + (i === 1 ? ' phare' : '') + '"><h3>' + f.nom + '</h3><p class="pour">' + (i === 0 ? "1 à " : (TARIFS.formules[i - 1].pros + 1) + " à ") + f.pros + " personnes qui reçoivent</p>" +
-        '<p class="apartir">À partir de</p><div class="prix">' + nombre(p) + ' €<small>HT / mois</small></div><ul>' +
-        "<li>Jusqu'à " + f.pros + " agendas</li><li>" + nombre(f.sms) + " SMS inclus par mois</li><li>Toutes les automatisations et l'assistant 24/7</li><li>Rapport mensuel de ce que la plateforme vous rapporte</li><li>Mise en place à partir de " + nombre(f.miseEnPlace) + " €</li></ul>" +
+      var p = prix(f.prix, m.coef), rdv = Math.max(1, Math.ceil(p / m.valeur)), de = i === 0 ? 1 : TARIFS.formules[i - 1].pros + 1;
+      return '<article class="formule' + (i === 1 ? ' phare' : '') + '"><h3>' + f.nom + '</h3><p class="pour">De ' + de + " à " + f.pros + " agendas</p>" +
+        '<p class="apartir">À partir de</p><div class="prix">' + nombre(p) + ' €<small>HT / mois</small></div><p class="engagement">engagement 12 mois</p><ul>' +
+        "<li>" + de + " à " + f.pros + " agendas</li><li>" + nombre(f.sms) + " SMS inclus par mois</li><li>Toutes les automatisations et l'assistant 24/7</li><li>Rapport mensuel de ce que la plateforme vous rapporte</li><li>Mise en place à partir de " + nombre(f.miseEnPlace) + " €</li></ul>" +
         '<p class="rentable">Remboursé dès ' + rdv + " rendez-vous récupéré" + (rdv > 1 ? "s" : "") + " par mois<span>créneau repris, appel rattrapé ou devis signé</span></p></article>";
-    }).join("");
-    note.textContent = "Calcul de rentabilité sur la base d'un rendez-vous moyen de " + nombre(m.valeur) + " € dans ce métier : le vôtre peut être différent. Prix hors taxes, avec engagement de 12 mois (sans engagement : +" + TARIFS.majoration + " %). SMS au-delà du forfait : " + TARIFS.sms + " € l'unité. Plus de 15 personnes ou plusieurs sites : sur mesure. Le prix exact est fixé après le diagnostic gratuit.";
+    }).join("") +
+      '<article class="formule sur-mesure"><h3>Sur mesure</h3><p class="pour">Réseaux, groupes, plusieurs sites</p>' +
+      '<p class="apartir">Prix</p><div class="prix prix-devis">Sur devis</div><p class="engagement">fixé après le diagnostic</p><ul>' +
+      "<li>Plus de " + TARIFS.formules[TARIFS.formules.length - 1].pros + " agendas ou plusieurs sites</li><li>Volume de SMS adapté à votre activité</li><li>Toutes les automatisations et l'assistant 24/7</li><li>Rapport mensuel pour chaque site</li><li>Mise en place sur devis</li></ul>" +
+      '<p class="rentable">Un interlocuteur unique chez SALW<span>configuration, suivi et points réguliers</span></p></article>';
+    note.textContent = "Calcul de rentabilité sur la base d'un rendez-vous moyen de " + nombre(m.valeur) + " € dans ce métier : le vôtre peut être différent. Prix hors taxes, avec engagement de 12 mois (sans engagement : +" + TARIFS.majoration + " %). SMS au-delà du forfait : " + TARIFS.sms + " € l'unité. Le prix exact est fixé après le diagnostic gratuit.";
   }
   boutons.innerHTML = TARIFS.metiers.map(function (m) { return '<button type="button" data-id="' + m.id + '" aria-pressed="false">' + m.nom + "</button>"; }).join("");
   boutons.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) afficher(b.getAttribute("data-id")); });
