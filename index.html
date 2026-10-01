@@ -323,6 +323,10 @@ body.chat-ouvert{overflow:hidden}
 .tarifs-metiers button:focus-visible{outline:3px solid var(--corail);outline-offset:2px}
 .tarifs-grille{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .formule .engagement{margin:4px 0 0;font-size:12.5px;color:var(--gris)}
+.formule .essai-gratuit{align-self:flex-start;background:var(--vert);color:#fff;font-size:12px;font-weight:700;padding:4px 10px;border-radius:999px;margin-bottom:6px}
+.formule.sur-mesure .essai-gratuit{background:#fff;color:var(--nuit)}
+.formule .essai-gratuit.vide{visibility:hidden}
+@media (max-width:920px){.formule .essai-gratuit.vide{display:none}}
 .formule .prix-devis{font-size:44px}
 .formule.sur-mesure{background:var(--nuit);border-color:var(--nuit);color:#fff}
 .formule.sur-mesure h3,.formule.sur-mesure .prix{color:#fff}
@@ -2040,9 +2044,9 @@ body.chat-ouvert{overflow:hidden}
   "use strict";
   var TARIFS = {
     formules: [
-      { nom: "Essentiel", pros: 2, sms: 500, prix: 149, miseEnPlace: 490 },
-      { nom: "Équipe", pros: 6, sms: 1500, prix: 289, miseEnPlace: 790 },
-      { nom: "Structure", pros: 15, sms: 4000, prix: 489, miseEnPlace: 1490 }
+      { nom: "Essentiel", pros: 2, sms: 500, prix: 149, miseEnPlace: 490, essai: false },
+      { nom: "Équipe", pros: 6, sms: 1500, prix: 289, miseEnPlace: 790, essai: true },
+      { nom: "Structure", pros: 15, sms: 4000, prix: 489, miseEnPlace: 1490, essai: true }
     ],
     // coef : ajustement selon la valeur d'un rendez-vous ; valeur : rendez-vous moyen retenu pour le calcul de rentabilité.
     metiers: [
@@ -2054,7 +2058,7 @@ body.chat-ouvert{overflow:hidden}
       { id: "ecole", nom: "École privée", coef: 1.3, valeur: 350 },
       { id: "garage", nom: "Garage, auto-école", coef: 1.2, valeur: 250 }
     ],
-    sms: "0,15", majoration: 20
+    sms: "0,15", majoration: 20, essaiJours: 7
   };
   var boutons = document.getElementById("tarifs-metiers"), grille = document.getElementById("tarifs-grille"), note = document.getElementById("tarifs-note");
   if (!boutons) return;
@@ -2066,16 +2070,16 @@ body.chat-ouvert{overflow:hidden}
     // Mêmes offres que la plateforme : trois formules au volume, plus le sur mesure.
     grille.innerHTML = TARIFS.formules.map(function (f, i) {
       var p = prix(f.prix, m.coef), rdv = Math.max(1, Math.ceil(p / m.valeur)), de = i === 0 ? 1 : TARIFS.formules[i - 1].pros + 1;
-      return '<article class="formule' + (i === 1 ? ' phare' : '') + '"><h3>' + f.nom + '</h3><p class="pour">De ' + de + " à " + f.pros + " agendas</p>" +
+      return '<article class="formule' + (i === 1 ? ' phare' : '') + '">' + (f.essai ? '<span class="essai-gratuit">' + TARIFS.essaiJours + " jours d'essai gratuit</span>" : '<span class="essai-gratuit vide" aria-hidden="true">&nbsp;</span>') + '<h3>' + f.nom + '</h3><p class="pour">De ' + de + " à " + f.pros + " agendas</p>" +
         '<p class="apartir">À partir de</p><div class="prix">' + nombre(p) + ' €<small>HT / mois</small></div><p class="engagement">engagement 12 mois</p><ul>' +
         "<li>" + de + " à " + f.pros + " agendas</li><li>" + nombre(f.sms) + " SMS inclus par mois</li><li>Toutes les automatisations et l'assistant 24/7</li><li>Rapport mensuel de ce que la plateforme vous rapporte</li><li>Mise en place à partir de " + nombre(f.miseEnPlace) + " €</li></ul>" +
         '<p class="rentable">Remboursé dès ' + rdv + " rendez-vous récupéré" + (rdv > 1 ? "s" : "") + " par mois<span>créneau repris, appel rattrapé ou devis signé</span></p></article>";
     }).join("") +
-      '<article class="formule sur-mesure"><h3>Sur mesure</h3><p class="pour">Réseaux, groupes, plusieurs sites</p>' +
+      '<article class="formule sur-mesure"><span class="essai-gratuit">' + TARIFS.essaiJours + " jours d'essai gratuit</span>" + '<h3>Sur mesure</h3><p class="pour">Réseaux, groupes, plusieurs sites</p>' +
       '<p class="apartir">Prix</p><div class="prix prix-devis">Sur devis</div><p class="engagement">fixé après le diagnostic</p><ul>' +
       "<li>Plus de " + TARIFS.formules[TARIFS.formules.length - 1].pros + " agendas ou plusieurs sites</li><li>Volume de SMS adapté à votre activité</li><li>Toutes les automatisations et l'assistant 24/7</li><li>Rapport mensuel pour chaque site</li><li>Mise en place sur devis</li></ul>" +
       '<p class="rentable">Un interlocuteur unique chez SALW<span>configuration, suivi et points réguliers</span></p></article>';
-    note.textContent = "Calcul de rentabilité sur la base d'un rendez-vous moyen de " + nombre(m.valeur) + " € dans ce métier : le vôtre peut être différent. Prix hors taxes, avec engagement de 12 mois (sans engagement : +" + TARIFS.majoration + " %). SMS au-delà du forfait : " + TARIFS.sms + " € l'unité. Le prix exact est fixé après le diagnostic gratuit.";
+    note.textContent = "Calcul de rentabilité sur la base d'un rendez-vous moyen de " + nombre(m.valeur) + " € dans ce métier : le vôtre peut être différent. Prix hors taxes, avec engagement de 12 mois (sans engagement : +" + TARIFS.majoration + " %). SMS au-delà du forfait : " + TARIFS.sms + " € l'unité. Essai gratuit de " + TARIFS.essaiJours + " jours à partir de l'offre Équipe : aucun prélèvement pendant l'essai, résiliation possible sans frais. Le prix exact est fixé après le diagnostic gratuit.";
   }
   boutons.innerHTML = TARIFS.metiers.map(function (m) { return '<button type="button" data-id="' + m.id + '" aria-pressed="false">' + m.nom + "</button>"; }).join("");
   boutons.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) afficher(b.getAttribute("data-id")); });
