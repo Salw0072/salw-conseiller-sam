@@ -70,6 +70,18 @@ function schema_reglages(): array
             ['paypal_secret', 'Secret PayPal', 'secret', []],
             ['paypal_mode', 'Mode PayPal', 'choix', ['choix' => ['sandbox' => 'Test (sandbox)', 'live' => 'Réel (live)']]],
         ]],
+        'reseaux' => ['Réseaux sociaux', "WhatsApp (rappels et prospects par l'API de Meta), Facebook, Instagram et LinkedIn de SALW. Les jetons viennent de l'application Meta de SALW (developers.facebook.com) et de LinkedIn (Community Management API).", [
+            ['wa_numero_id', 'WhatsApp : identifiant du numéro (Phone number ID)', 'texte', ['aide' => 'WhatsApp Manager › Téléphones.']],
+            ['wa_jeton', 'WhatsApp : jeton d\'accès permanent', 'secret', ['aide' => 'Jeton d\'un utilisateur système Meta, avec le droit whatsapp_business_messaging.']],
+            ['fb_page_id', 'Facebook : identifiant de la page SALW', 'texte', []],
+            ['fb_jeton', 'Facebook : jeton d\'accès de la page', 'secret', ['aide' => 'Sert aussi à Instagram et à la lecture des prospects des publicités.']],
+            ['ig_compte_id', 'Instagram : identifiant du compte professionnel', 'texte', ['aide' => 'Compte Instagram professionnel relié à la page Facebook.']],
+            ['ig_image', 'Instagram : image JPEG publique', 'url', ['aide' => 'Instagram exige une image. Vide : la photo du site (img/albert.jpg).']],
+            ['li_organisation', 'LinkedIn : identifiant de la page entreprise', 'texte', []],
+            ['li_jeton', 'LinkedIn : jeton d\'accès', 'secret', ['aide' => 'Droit w_organization_social. Le jeton dure 60 jours.']],
+            ['meta_app_secret', 'Meta : clé secrète de l\'application', 'secret', ['aide' => 'Vérifie les notifications reçues sur meta-webhook.php.']],
+            ['meta_jeton_verification', 'Meta : jeton de vérification du webhook', 'secret', ['generer' => true, 'aide' => 'À recopier dans Meta lors de la déclaration de l\'adresse https://votre-site/meta-webhook.php (champ « leadgen » de la page).']],
+        ]],
         'objectifs' => ['Objectifs', 'Affichés sur le tableau de bord.', [
             ['objectif_ca', "Objectif de chiffre d'affaires signé via l'application (€ HT)", 'nombre', ['min' => 0, 'max' => 100000000]],
             ['objectif_debut', 'Début de la période', 'date', []],

@@ -14,6 +14,7 @@ function nav_items(): array
         ['pipeline',  'Suivi commercial',  'voir', 'M3 4h4v12H3zM8.5 4h4v8h-4zM14 4h3v5h-3z', 0],
         ['prospects', 'Prospects',         'voir', 'M4 15.5V17l2.5-1.6H14a3 3 0 0 0 3-3V6.5a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v6a3 3 0 0 0 1 2.2z', 0],
         ['demandes',  'Demandes',          'voir', 'M3 5.5h14v9H3zM3 5.5l7 5 7-5', $demandes],
+        ['reseaux',   'Réseaux sociaux',   'voir', 'M5 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM15 3a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM15 13a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM6.8 9l6.4-3.2M6.8 11l6.4 3.2', 0],
         ['paiements', 'Paiements',         'voir', 'M2.5 5.5h15v9h-15zM2.5 8.5h15M5.5 12h3', 0],
         ['dispo',     'Disponibilités',    'voir', 'M10 3.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13zM10 6.5V10l2.5 2', 0],
         ['reglages',  'Réglages',          'reglages', 'M10 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM10 2.5v2M10 15.5v2M2.5 10h2M15.5 10h2M4.7 4.7l1.4 1.4M13.9 13.9l1.4 1.4M4.7 15.3l1.4-1.4M13.9 6.1l1.4-1.4', 0],

@@ -192,3 +192,15 @@ Espace admin › **Paiements** : on crée une demande (client, e-mail, objet, mo
 **Mise en service** : Réglages › **Paiements** (clé secrète Stripe, secret du webhook, Client ID et secret PayPal, mode test ou réel). Stripe › Développeurs › Webhooks : `https://<site>/stripe-webhook.php`, événements `checkout.session.completed`, `checkout.session.async_payment_succeeded`, `checkout.session.async_payment_failed`. Commencer avec les clés de test.
 
 Le montant est payé tel quel : indiquer le TTC si la TVA s'applique au client. Testé contre un faux Stripe et un faux PayPal locaux (Stripe, PayPal, SEPA, notifications signées et falsifiées, annulation, lien inventé), PHP 8.3. Non testé contre les vrais services.
+
+## Réseaux sociaux et WhatsApp
+
+Espace admin › **Réseaux sociaux** : état des connexions, publication sur Facebook, Instagram et LinkedIn de SALW (immédiate ou programmée, annulable), historique, modèles WhatsApp à faire approuver.
+
+- **Rappel J-1 par WhatsApp** avec le modèle Meta `salw_rappel_diagnostic` (seul moyen fiable hors de la fenêtre de 24 h). Sans modèle, Twilio puis l'e-mail prennent le relais.
+- **Prospects des publicités** Facebook et Instagram : arrivent dans Demandes (source « publicité »), e-mail à Albert et au prospect, WhatsApp `salw_prospect_diagnostic` s'il a accepté.
+- Les publications programmées partent avec `rappels.php` (cron toutes les 15 minutes).
+
+**Mise en service** : la même application Meta que la plateforme peut servir (vérification d'entreprise et App Review, voir le README de la plateforme). Réglages › **Réseaux sociaux** : identifiants et jetons WhatsApp, page Facebook, Instagram, LinkedIn, clé secrète de l'application, jeton de vérification, image Instagram (JPEG, par défaut `img/albert.jpg`). Webhook Meta : `https://<site>/meta-webhook.php`, objet « page », champ « leadgen ». Jeton LinkedIn à renouveler tous les 60 jours.
+
+Testé contre un faux Meta et un faux LinkedIn locaux, PHP 8.3 et 7.4. Non testé contre les vrais services.

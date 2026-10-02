@@ -14,7 +14,8 @@ require $prive . '/lib.php';
 require $prive . '/conversations.php';
 require $prive . '/sam-connaissances.php';
 require $prive . '/paiements.php';
-foreach (['noyau', 'vues', 'donnees', 'graphiques', 'pages-acces', 'pages-tableau', 'pages-rdv', 'pages-prospects', 'pages-reglages', 'pages-equipe', 'pages-paiements'] as $f) {
+require $prive . '/reseaux-sam.php';
+foreach (['noyau', 'vues', 'donnees', 'graphiques', 'pages-acces', 'pages-tableau', 'pages-rdv', 'pages-prospects', 'pages-reglages', 'pages-equipe', 'pages-paiements', 'pages-reseaux'] as $f) {
     require $prive . '/admin/' . $f . '.php';
 }
 
@@ -71,6 +72,6 @@ purger_donnees();
 $pages = [
     'tableau' => 'page_tableau', 'rdv' => 'page_rdv', 'pipeline' => 'page_pipeline', 'prospects' => 'page_prospects',
     'demandes' => 'page_demandes', 'dispo' => 'page_dispo', 'reglages' => 'page_reglages', 'equipe' => 'page_equipe',
-    'journal' => 'page_journal', 'compte' => 'page_compte', 'export' => 'page_export', 'vapi' => 'page_vapi', 'paiements' => 'page_paiements',
+    'journal' => 'page_journal', 'compte' => 'page_compte', 'export' => 'page_export', 'vapi' => 'page_vapi', 'paiements' => 'page_paiements', 'reseaux' => 'page_reseaux',
 ];
 ($pages[$page] ?? 'page_tableau')();

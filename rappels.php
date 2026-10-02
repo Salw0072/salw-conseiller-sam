@@ -16,6 +16,8 @@
 
 declare(strict_types=1);
 require __DIR__ . '/prive/lib.php';
+require_once __DIR__ . '/prive/conversations.php';
+require_once __DIR__ . '/prive/reseaux-sam.php';
 
 if (PHP_SAPI !== 'cli') {
     $cle = (string)cfg('cron_cle');
@@ -76,7 +78,9 @@ foreach ($aEnvoyer as $e) {
             . ($lienAnnulation !== '' ? "\nUn empêchement ? {$lienAnnulation}\n" : "\nUn empêchement ? Utilisez le lien d'annulation de l'e-mail de confirmation.\n")
             . "\nSALW CONSULTING\n",
             (string)cfg('destinataire'), generer_ics($r));
-        if ($tel !== '' && $c['whatsapp']) {
+        // WhatsApp : modèle approuvé par Meta si WhatsApp est connecté, sinon Twilio (texte libre, refusé par Meta
+        // hors d'une conversation ouverte depuis moins de 24 h).
+        if ($tel !== '' && !sam_whatsapp_modele($tel, 'salw_rappel_diagnostic', [$prenom, $quand, (string)$r['visio']]) && $c['whatsapp']) {
             envoyer_message('whatsapp', $tel, "Bonjour {$prenom}, rappel de votre diagnostic SALW CONSULTING demain, {$quand}. Lien visio : {$r['visio']}");
         }
     } else {
@@ -95,8 +99,13 @@ foreach ($aEnvoyer as $e) {
 echo $bilan ? implode("\n", $bilan) . "\n" : "Aucun rappel à envoyer.\n";
 
 // Purge RGPD (conversations sans rendez-vous, demandes, anciens rendez-vous).
-require __DIR__ . '/prive/conversations.php';
+require_once __DIR__ . '/prive/conversations.php';
 $purges = purger_donnees();
 if ($purges > 0) {
     echo "Purge : {$purges} élément(s) supprimé(s).\n";
+}
+
+// Publications programmées sur Facebook, Instagram et LinkedIn.
+foreach (sam_publier_en_attente() as $ligne) {
+    echo $ligne . "\n";
 }

@@ -131,6 +131,21 @@ return [
     'paypal_secret'    => '',
     'paypal_mode'      => 'sandbox',   // « sandbox » pour les essais, « live » ensuite
 
+    // --- Réseaux sociaux et WhatsApp (Meta, LinkedIn) ------------------------------------------
+    // Modifiables aussi dans Réglages › Réseaux sociaux. Notifications Meta : https://<site>/meta-webhook.php
+    'meta_app_secret'         => '',   // clé secrète de l'application Meta (vérifie les notifications)
+    'meta_jeton_verification' => '',   // texte libre recopié dans Meta lors de la déclaration du webhook
+    'meta_graph_version'      => 'v23.0',
+    'linkedin_version'        => '202608',
+    'wa_numero_id' => '',   // WhatsApp : identifiant du numéro (Phone number ID)
+    'wa_jeton'     => '',   // WhatsApp : jeton d'accès permanent
+    'fb_page_id'   => '',   // page Facebook de SALW
+    'fb_jeton'     => '',   // jeton d'accès de la page (sert aussi à Instagram et aux prospects)
+    'ig_compte_id' => '',   // compte Instagram professionnel relié à la page
+    'ig_image'     => '',   // image JPEG publique pour Instagram ; vide = la photo du site (img/albert.jpg)
+    'li_organisation' => '',   // identifiant de la page entreprise LinkedIn
+    'li_jeton'        => '',   // jeton LinkedIn (60 jours)
+
     // --- Mode test ---------------------------------------------------------------------
     // true : aucun e-mail n'est envoyé, ils sont écrits dans prive/donnees/boite-test/.
     'mode_test' => false,

@@ -148,7 +148,7 @@ function page_demandes(): void
     echo '<div class="liste-cartes">';
     foreach ($liste as $d) {
         echo '<article class="carte' . (!empty($d['traite']) ? ' attenuee' : '') . '"><div class="entete-carte"><div><b>' . h($d['nom']) . '</b> · <a href="mailto:' . h($d['email']) . '?subject=' . rawurlencode('Votre diagnostic SALW CONSULTING') . '">' . h($d['email']) . '</a>'
-            . '<br><span class="gris">' . h(date_fr($d['recu_le'])) . ' · ' . h($d['type']) . '</span></div>'
+            . '<br><span class="gris">' . h(date_fr($d['recu_le'])) . ' · ' . h(['publicite' => 'Prospect d\'une publicité Facebook ou Instagram'][$d['type']] ?? $d['type']) . '</span></div>'
             . (!empty($d['traite']) ? badge('Traitée', 'vert') : badge('À traiter', 'orange')) . '</div>'
             . '<pre class="fiche-sam">' . h($d['message']) . '</pre>';
         if (peut('modifier')) {

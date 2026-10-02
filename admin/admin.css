@@ -227,3 +227,6 @@ a.tuile:hover{border-color:var(--prune-trait)}
 /* Paiements */
 form.inline{display:inline}
 .lien-copie{width:100%;min-width:180px;font:12.5px ui-monospace,Consolas,monospace;padding:6px 8px;border:1px solid var(--trait,#E6E3EA);border-radius:8px;background:#FAF7F9}
+/* Réseaux sociaux */
+.reseaux-etat{display:flex;flex-wrap:wrap;gap:10px 22px;margin-bottom:8px}
+.cases-ligne{display:flex;flex-wrap:wrap;gap:6px 18px}
