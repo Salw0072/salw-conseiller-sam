@@ -333,6 +333,8 @@ body.chat-ouvert{overflow:hidden}
 .formule.sur-mesure .pour,.formule.sur-mesure .apartir,.formule.sur-mesure .engagement,.formule.sur-mesure .rentable span{color:rgba(255,255,255,.75)}
 .formule.sur-mesure .rentable{color:#fff;border-top-color:rgba(255,255,255,.2)}
 .formule.sur-mesure li::before{background-color:rgba(255,255,255,.9)}
+.formule.sur-mesure li.plus{color:#fff}
+.formule.sur-mesure li.plus::before{background-color:#CFE5D8 !important}
 @media (max-width:1180px){.tarifs-grille{grid-template-columns:1fr 1fr}}
 .formule{background:#fff;border:1.5px solid var(--prune-trait);border-radius:var(--rayon);padding:26px;display:flex;flex-direction:column;gap:6px}
 .formule.phare{border-color:var(--prune);box-shadow:var(--ombre)}
@@ -343,6 +345,10 @@ body.chat-ouvert{overflow:hidden}
 .formule .prix small{font-family:var(--corps);font-size:14px;color:var(--gris);font-weight:700;margin-left:6px}
 .formule ul{list-style:none;padding:0;margin:16px 0 0;display:flex;flex-direction:column;gap:9px;font-size:14.5px}
 .formule li{display:flex;gap:9px;align-items:flex-start}
+.formule li.plus{font-weight:600;color:var(--nuit)}
+.formule li.plus::before{background-color:#E3EFE8 !important;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8 4v8M4 8h8' fill='none' stroke='%232F6B50' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") !important}
+.formule li.non{color:var(--gris)}
+.formule li.non::before{background:#EEECEF !important}
 .formule li::before{content:"";flex:none;width:16px;height:16px;margin-top:3px;border-radius:50%;background:var(--prune-clair) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4 8.5l2.6 2.6L12 5.6' fill='none' stroke='%236B2150' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
 .formule .rentable{margin-top:auto;padding-top:16px;border-top:1px solid var(--trait);font-size:14px;color:var(--vert);font-weight:700}
 .formule .rentable span{display:block;font-weight:400;color:var(--gris);font-size:13px}
@@ -596,9 +602,9 @@ body.chat-ouvert{overflow:hidden}
       <div class="section-tete">
         <div>
           <span class="etiquette">Offre A · Plateforme SALW par métier</span>
-          <h2 class="titre" id="tarifs-titre">Un prix selon votre taille, pas selon vos options</h2>
+          <h2 class="titre" id="tarifs-titre">Un prix selon votre taille, plus de canaux à chaque palier</h2>
         </div>
-        <p>Toutes les automatisations sont incluses dans chaque formule : appels manqués, rappels, liste d'attente, avis Google, relances, assistant 24/7, rapport mensuel. Seul le volume change. Le prix tient compte de votre métier, parce qu'un rendez-vous ne vaut pas la même chose chez un avocat et chez un généraliste.</p>
+        <p>Les automatisations de base sont incluses dans chaque formule : appels manqués, rappels, liste d'attente, avis Google, relances, assistant 24/7, rapport mensuel. À partir de l'offre Équipe s'ajoutent WhatsApp et les publications automatiques sur vos réseaux ; l'offre Structure contacte aussi les prospects de vos publicités. Le prix tient compte de votre métier, parce qu'un rendez-vous ne vaut pas la même chose chez un avocat et chez un généraliste.</p>
       </div>
       <div class="tarifs-metiers" role="group" aria-label="Votre métier" id="tarifs-metiers"></div>
       <div class="tarifs-grille" id="tarifs-grille" aria-live="polite"></div>
@@ -2044,10 +2050,12 @@ body.chat-ouvert{overflow:hidden}
   "use strict";
   var TARIFS = {
     formules: [
-      { nom: "Essentiel", pros: 2, sms: 500, prix: 149, miseEnPlace: 490, essai: false },
-      { nom: "Équipe", pros: 6, sms: 1500, prix: 289, miseEnPlace: 790, essai: true },
-      { nom: "Structure", pros: 15, sms: 4000, prix: 489, miseEnPlace: 1490, essai: true }
+      { nom: "Essentiel", pros: 2, sms: 500, prix: 149, miseEnPlace: 490, essai: false, plus: [] },
+      { nom: "Équipe", pros: 6, sms: 1500, prix: 289, miseEnPlace: 790, essai: true, plus: ["Rappels et confirmations par WhatsApp", "Publications automatiques Facebook et Instagram"] },
+      { nom: "Structure", pros: 15, sms: 4000, prix: 489, miseEnPlace: 1490, essai: true, plus: ["Rappels et confirmations par WhatsApp", "Publications automatiques Facebook, Instagram et LinkedIn", "Prospects des publicités contactés automatiquement"] }
     ],
+    // Ce que chaque formule ajoute (mêmes listes que AVANTAGES_FORMULES dans la plateforme). Un WhatsApp compte pour un message du forfait.
+    surMesure: ["Rappels et confirmations par WhatsApp", "Publications automatiques Facebook, Instagram et LinkedIn", "Prospects des publicités contactés automatiquement"],
     // coef : ajustement selon la valeur d'un rendez-vous ; valeur : rendez-vous moyen retenu pour le calcul de rentabilité.
     metiers: [
       { id: "juridique", nom: "Cabinet juridique ou comptable", coef: 1.4, valeur: 180 },
@@ -2063,6 +2071,7 @@ body.chat-ouvert{overflow:hidden}
   var boutons = document.getElementById("tarifs-metiers"), grille = document.getElementById("tarifs-grille"), note = document.getElementById("tarifs-note");
   if (!boutons) return;
   function prix(base, coef) { return Math.ceil(Math.round(base * coef * 100) / 100 / 10) * 10 - 1; }
+  function plus(l) { return l.length ? l.map(function (x) { return '<li class="plus">' + x + "</li>"; }).join("") : '<li class="non">WhatsApp et réseaux sociaux : à partir de l\'offre Équipe</li>'; }
   function nombre(n) { return String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f"); }
   function afficher(id) {
     var m = TARIFS.metiers.filter(function (x) { return x.id === id; })[0] || TARIFS.metiers[0];
@@ -2072,14 +2081,14 @@ body.chat-ouvert{overflow:hidden}
       var p = prix(f.prix, m.coef), rdv = Math.max(1, Math.ceil(p / m.valeur)), de = i === 0 ? 1 : TARIFS.formules[i - 1].pros + 1;
       return '<article class="formule' + (i === 1 ? ' phare' : '') + '">' + (f.essai ? '<span class="essai-gratuit">' + TARIFS.essaiJours + " jours d'essai gratuit</span>" : '<span class="essai-gratuit vide" aria-hidden="true">&nbsp;</span>') + '<h3>' + f.nom + '</h3><p class="pour">De ' + de + " à " + f.pros + " agendas</p>" +
         '<p class="apartir">À partir de</p><div class="prix">' + nombre(p) + ' €<small>HT / mois</small></div><p class="engagement">engagement 12 mois</p><ul>' +
-        "<li>" + de + " à " + f.pros + " agendas</li><li>" + nombre(f.sms) + " SMS inclus par mois</li><li>Toutes les automatisations et l'assistant 24/7</li><li>Rapport mensuel de ce que la plateforme vous rapporte</li><li>Mise en place à partir de " + nombre(f.miseEnPlace) + " €</li></ul>" +
+        "<li>" + de + " à " + f.pros + " agendas</li><li>" + nombre(f.sms) + (f.plus.length ? " messages inclus par mois (SMS ou WhatsApp)" : " SMS inclus par mois") + "</li><li>Automatisations de base et assistant 24/7</li>" + plus(f.plus) + "<li>Rapport mensuel de ce que la plateforme vous rapporte</li><li>Mise en place à partir de " + nombre(f.miseEnPlace) + " €</li></ul>" +
         '<p class="rentable">Remboursé dès ' + rdv + " rendez-vous récupéré" + (rdv > 1 ? "s" : "") + " par mois<span>créneau repris, appel rattrapé ou devis signé</span></p></article>";
     }).join("") +
       '<article class="formule sur-mesure"><span class="essai-gratuit">' + TARIFS.essaiJours + " jours d'essai gratuit</span>" + '<h3>Sur mesure</h3><p class="pour">Réseaux, groupes, plusieurs sites</p>' +
       '<p class="apartir">Prix</p><div class="prix prix-devis">Sur devis</div><p class="engagement">fixé après le diagnostic</p><ul>' +
-      "<li>Plus de " + TARIFS.formules[TARIFS.formules.length - 1].pros + " agendas ou plusieurs sites</li><li>Volume de SMS adapté à votre activité</li><li>Toutes les automatisations et l'assistant 24/7</li><li>Rapport mensuel pour chaque site</li><li>Mise en place sur devis</li></ul>" +
+      "<li>Plus de " + TARIFS.formules[TARIFS.formules.length - 1].pros + " agendas ou plusieurs sites</li><li>Volume de messages adapté à votre activité</li><li>Automatisations de base et assistant 24/7</li>" + plus(TARIFS.surMesure) + "<li>Rapport mensuel pour chaque site</li><li>Mise en place sur devis</li></ul>" +
       '<p class="rentable">Un interlocuteur unique chez SALW<span>configuration, suivi et points réguliers</span></p></article>';
-    note.textContent = "Calcul de rentabilité sur la base d'un rendez-vous moyen de " + nombre(m.valeur) + " € dans ce métier : le vôtre peut être différent. Prix hors taxes, avec engagement de 12 mois (sans engagement : +" + TARIFS.majoration + " %). SMS au-delà du forfait : " + TARIFS.sms + " € l'unité. Essai gratuit de " + TARIFS.essaiJours + " jours à partir de l'offre Équipe : aucun prélèvement pendant l'essai, résiliation possible sans frais. Le prix exact est fixé après le diagnostic gratuit.";
+    note.textContent = "Calcul de rentabilité sur la base d'un rendez-vous moyen de " + nombre(m.valeur) + " € dans ce métier : le vôtre peut être différent. Prix hors taxes, avec engagement de 12 mois (sans engagement : +" + TARIFS.majoration + " %). Message au-delà du forfait : " + TARIFS.sms + " € l'unité (un WhatsApp compte pour un message). Essai gratuit de " + TARIFS.essaiJours + " jours à partir de l'offre Équipe : aucun prélèvement pendant l'essai, résiliation possible sans frais. Le prix exact est fixé après le diagnostic gratuit.";
   }
   boutons.innerHTML = TARIFS.metiers.map(function (m) { return '<button type="button" data-id="' + m.id + '" aria-pressed="false">' + m.nom + "</button>"; }).join("");
   boutons.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) afficher(b.getAttribute("data-id")); });
