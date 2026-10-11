@@ -6,6 +6,7 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'setasign\\Fpdi\\' => array($vendorDir . '/setasign/fpdi/src'),
     'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),
     'StandardWebhooks\\' => array($vendorDir . '/standard-webhooks/standard-webhooks/libraries/php/src'),
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-factory/src', $vendorDir . '/psr/http-message/src'),

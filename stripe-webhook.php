@@ -11,6 +11,7 @@
 declare(strict_types=1);
 require __DIR__ . '/prive/lib.php';
 require __DIR__ . '/prive/paiements.php';
+require __DIR__ . '/prive/livres.php';
 
 $corps = (string)file_get_contents('php://input', false, null, 0, 1000000);
 if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST' || !stripe_signature_valide($corps, (string)($_SERVER['HTTP_STRIPE_SIGNATURE'] ?? ''), (string)cfg('stripe_secret_webhook'))) {
@@ -21,7 +22,11 @@ $s = is_array($e) ? ($e['data']['object'] ?? []) : [];
 switch ($e['type'] ?? '') {
     case 'checkout.session.completed':
     case 'checkout.session.async_payment_succeeded':
-        stripe_constater($s);
+        if (!empty($s['metadata']['vente_id'])) {
+            stripe_constater_vente($s);   // livre : envoyé même si l'acheteur a fermé la page avant le retour
+        } else {
+            stripe_constater($s);
+        }
         break;
     case 'checkout.session.async_payment_failed':
         if (!empty($s['metadata']['paiement_id'])) {

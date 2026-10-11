@@ -285,6 +285,21 @@ body.chat-ouvert{overflow:hidden}
 .section-tete{display:grid;grid-template-columns:1fr 360px;gap:40px;align-items:end;margin-bottom:40px}
 .section-tete h2{font-size:clamp(46px,6.5vw,86px);color:var(--nuit)}
 .section-tete p{margin:0;color:var(--gris)}
+/* Livres (section masquée tant qu'aucun livre n'est publié) */
+.livres{padding:90px 0;background:var(--fond)}
+.livres[hidden],.nav a[hidden]{display:none!important}
+.livres-grille{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:28px}
+.livre-carte{display:flex;flex-direction:column;gap:10px;text-decoration:none;color:inherit}
+.livre-carte .couv{aspect-ratio:2/3;border-radius:6px;overflow:hidden;background:var(--nuit);box-shadow:0 18px 36px -18px rgba(23,27,52,.55);transition:transform .2s}
+.livre-carte:hover .couv{transform:translateY(-4px)}
+.livre-carte .couv img{width:100%;height:100%;object-fit:cover}
+.livre-carte .couv span{display:grid;place-items:center;height:100%;padding:18px;text-align:center;color:#fff;font-family:var(--titre);font-size:24px;line-height:1.1}
+.livre-carte h3{font-family:var(--titre);font-weight:400;font-size:24px;line-height:1.05;color:var(--nuit);margin:6px 0 0}
+.livre-carte p{margin:0;color:var(--gris);font-size:14.5px}
+.livre-carte .bas{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:auto;padding-top:6px}
+.livre-carte .prix{font-family:var(--titre);font-size:28px;color:var(--prune)}
+.livre-carte .acheter{background:var(--prune);color:#fff;border-radius:999px;padding:9px 16px;font-weight:700;font-size:14px}
+.livre-carte:hover .acheter{background:var(--prune-fonce)}
 .cartes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 .carte{background:#fff;border:1.5px solid var(--trait);border-radius:var(--rayon);padding:18px 18px 22px;text-align:left;cursor:pointer;transition:transform .15s,box-shadow .15s,border-color .15s;display:flex;flex-direction:column;gap:10px;min-height:190px}
 .carte:hover{transform:translateY(-3px);box-shadow:0 18px 36px -20px rgba(107,33,80,.5);border-color:var(--prune-trait)}
@@ -450,6 +465,7 @@ body.chat-ouvert{overflow:hidden}
       <a href="#offres">Nos offres</a>
       <a href="#tarifs">Tarifs</a>
       <a href="#methode">Méthode</a>
+      <a href="#livres" id="nav-livres" hidden>Livres</a>
       <a href="#contact">Contact</a>
       <div class="langues" role="group" aria-label="Langue">
         <button type="button" aria-current="true" lang="fr">FR</button><span class="sep" aria-hidden="true">·</span>
@@ -641,6 +657,15 @@ body.chat-ouvert{overflow:hidden}
         <div><b>Référence :</b> <span id="reference-texte"></span></div>
         <span>Norvège · Europe francophone · Afrique francophone</span>
       </div>
+    </div>
+  </section>
+
+  <section class="livres" id="livres" aria-labelledby="livres-titre" hidden>
+    <div class="wrap">
+      <div class="section-tete"><div><span class="etiquette">Livres d'Albert Wutshu Shongo</span>
+        <h2 class="titre" id="livres-titre">Mon expérience, à lire</h2></div>
+        <p>Les méthodes que j'applique avec mes clients, réunies en livres numériques. Paiement sécurisé, PDF envoyé aussitôt par e-mail.</p></div>
+      <div class="livres-grille" id="livres-grille" aria-live="polite"></div>
     </div>
   </section>
 
@@ -2098,6 +2123,30 @@ body.chat-ouvert{overflow:hidden}
     var c = e.target.closest && e.target.closest("[data-metier]");
     if (c && TARIFS.metiers.some(function (x) { return x.id === c.getAttribute("data-metier"); })) afficher(c.getAttribute("data-metier"));
   });
+})();
+</script>
+<script>
+// Livres : la section et le lien du menu n'apparaissent que si au moins un livre est en vente.
+(function () {
+  var grille = document.getElementById("livres-grille");
+  if (!grille || !window.fetch) return;
+  function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]; }); }
+  fetch("livres-liste.php", {headers: {"Accept": "application/json"}, cache: "no-store"})
+    .then(function (r) { if (!r.ok) throw new Error(); return r.json(); })
+    .then(function (j) {
+      if (!j.ok || !j.livres || !j.livres.length) return;
+      grille.innerHTML = j.livres.map(function (l) {
+        var couv = l.couverture ? '<img src="' + esc(l.couverture) + '" alt="" loading="lazy" width="400" height="600">' : "<span>" + esc(l.titre) + "</span>";
+        return '<a class="livre-carte" href="' + esc(l.achat) + '"><div class="couv">' + couv + "</div><h3>" + esc(l.titre) + "</h3>"
+          + (l.sous_titre ? "<p>" + esc(l.sous_titre) + "</p>" : "")
+          + '<div class="bas"><span class="prix">' + esc(l.prix_texte) + '</span><span class="acheter">Acheter</span></div></a>';
+      }).join("");
+      document.getElementById("livres").hidden = false;
+      var lien = document.getElementById("nav-livres");
+      if (lien) lien.hidden = false;
+      if (location.hash === "#livres") document.getElementById("livres").scrollIntoView();
+    })
+    .catch(function () {});
 })();
 </script>
 </body>

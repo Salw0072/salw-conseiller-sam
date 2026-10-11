@@ -204,3 +204,18 @@ Espace admin › **Réseaux sociaux** : état des connexions, publication sur Fa
 **Mise en service** : la même application Meta que la plateforme peut servir (vérification d'entreprise et App Review, voir le README de la plateforme). Réglages › **Réseaux sociaux** : identifiants et jetons WhatsApp, page Facebook, Instagram, LinkedIn, clé secrète de l'application, jeton de vérification, image Instagram (JPEG, par défaut `img/albert.jpg`). Webhook Meta : `https://<site>/meta-webhook.php`, objet « page », champ « leadgen ». Jeton LinkedIn à renouveler tous les 60 jours.
 
 Testé contre un faux Meta et un faux LinkedIn locaux, PHP 8.3 et 7.4. Non testé contre les vrais services.
+
+## Livres numériques (boutique)
+
+Section **« Livres »** de la page d'accueil (`#livres`, lien dans le menu) : elle n'apparaît que si au moins un livre est en vente. Chaque carte mène à `acheter.php?l=…` : nom, e-mail, case d'accès immédiat (renonciation au droit de rétractation, obligatoire pour un contenu numérique livré tout de suite), paiement **par carte (Stripe)** ou **PayPal**.
+
+- **Après paiement** : vérification auprès du service, puis e-mail à l'acheteur avec un **lien personnel** (`telecharger.php?t=…`) valable **7 jours** et **5 téléchargements**, et avis à Albert. Si l'acheteur ferme la page avant le retour, la notification Stripe (`stripe-webhook.php`, événement `checkout.session.completed`) déclenche l'envoi.
+- **PDF marqué** à la volée : « Exemplaire de [nom] · [e-mail] · [date] · usage personnel » en bas de chaque page (FPDI et FPDF, dans `prive/vendor/`). Testé sur les 5 livres d'Albert : 0,3 s pour 200 pages.
+- **Espace admin › Livres** : ajout et modification (titre, sous-titre, description, prix TTC, PDF jusqu'à 80 Mo, couverture JPG/PNG/WebP), mise en vente ou retrait, ventes du mois et total, liste des ventes avec téléchargements restants et **« Renvoyer le lien »** (nouveau délai, compteur remis à zéro). Le PDF est contrôlé à l'envoi : s'il ne peut pas être marqué, il est refusé.
+- **Stockage** : `prive/donnees/livres.json`, `ventes.json` et les fichiers dans `prive/donnees/livres/`, jamais servis directement (couvertures via `couverture.php`).
+- **`.user.ini`** : porte la limite d'envoi de fichiers à 100 Mo sur Hostinger (2 Mo par défaut).
+- Carte uniquement côté Stripe (pas de prélèvement SEPA, qui retarderait la livraison de plusieurs jours).
+
+**À vérifier avant de vendre** : un livre inscrit à **KDP Select** (Amazon) ne peut pas être vendu en numérique ailleurs pendant la période d'exclusivité ; et la vente de livres numériques à des particuliers de l'UE relève de la TVA du pays de l'acheteur (guichet OSS), à valider avec le comptable (Stripe Tax peut la calculer).
+
+Testé contre un faux Stripe et un faux PayPal locaux : ajout de livre, faux PDF refusé, achat carte et PayPal, rejeu sans double envoi, notification Stripe signée et falsifiée, marquage vérifié dans le PDF, limite de 5 téléchargements, lien inventé, renvoi par l'admin, retrait de la vente, affichage mobile. Non testé contre les vrais services.

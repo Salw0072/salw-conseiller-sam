@@ -4,7 +4,7 @@
  *
  * Toute la logique est dans prive/admin/ (inaccessible depuis le web).
  * Pages : tableau, rdv, pipeline, prospects, demandes, dispo, reglages, equipe,
- * journal, compte, export, vapi, connexion, deconnexion.
+ * journal, compte, export, vapi, paiements, reseaux, livres, connexion, deconnexion.
  */
 
 declare(strict_types=1);
@@ -15,7 +15,8 @@ require $prive . '/conversations.php';
 require $prive . '/sam-connaissances.php';
 require $prive . '/paiements.php';
 require $prive . '/reseaux-sam.php';
-foreach (['noyau', 'vues', 'donnees', 'graphiques', 'pages-acces', 'pages-tableau', 'pages-rdv', 'pages-prospects', 'pages-reglages', 'pages-equipe', 'pages-paiements', 'pages-reseaux'] as $f) {
+require $prive . '/livres.php';
+foreach (['noyau', 'vues', 'donnees', 'graphiques', 'pages-acces', 'pages-tableau', 'pages-rdv', 'pages-prospects', 'pages-reglages', 'pages-equipe', 'pages-paiements', 'pages-reseaux', 'pages-livres'] as $f) {
     require $prive . '/admin/' . $f . '.php';
 }
 
@@ -72,6 +73,6 @@ purger_donnees();
 $pages = [
     'tableau' => 'page_tableau', 'rdv' => 'page_rdv', 'pipeline' => 'page_pipeline', 'prospects' => 'page_prospects',
     'demandes' => 'page_demandes', 'dispo' => 'page_dispo', 'reglages' => 'page_reglages', 'equipe' => 'page_equipe',
-    'journal' => 'page_journal', 'compte' => 'page_compte', 'export' => 'page_export', 'vapi' => 'page_vapi', 'paiements' => 'page_paiements', 'reseaux' => 'page_reseaux',
+    'journal' => 'page_journal', 'compte' => 'page_compte', 'export' => 'page_export', 'vapi' => 'page_vapi', 'paiements' => 'page_paiements', 'reseaux' => 'page_reseaux', 'livres' => 'page_livres',
 ];
 ($pages[$page] ?? 'page_tableau')();

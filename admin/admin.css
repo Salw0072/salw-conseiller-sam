@@ -230,3 +230,5 @@ form.inline{display:inline}
 /* Réseaux sociaux */
 .reseaux-etat{display:flex;flex-wrap:wrap;gap:10px 22px;margin-bottom:8px}
 .cases-ligne{display:flex;flex-wrap:wrap;gap:6px 18px}
+/* Livres : champs de fichier */
+input[type=file]{font:inherit;font-size:14px;padding:8px 0}
